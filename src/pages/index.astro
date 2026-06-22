@@ -1,0 +1,267 @@
+---
+// Gerado a partir de: index.html
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import Video from '../components/ui/Video.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+import '../styles/index.css';
+---
+
+<Base
+  title="Eventos Corporativos no Jockey Club | Páreo"
+  description="Eventos corporativos no endereço mais prestigiado do Rio de Janeiro. Dentro do Jockey Club, o Páreo recebe sua empresa no Salão Nobre ou no restaurante."
+  ogImage="/images/og-index.jpg"
+>
+<!-- ===== HEADER ===== -->
+<header class="bar" id="bar">
+  <a href="#" class="brand"><Img src="/images/placeholder.jpg" alt="Páreo" priority /></a>
+  <a href="#contato" class="mini-cta">Solicite um contato</a>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="bg">
+    <Img src="hero.jpg" alt="" priority width={1920} class="hero-bg-img" />
+  </div>
+  <div class="veil"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">Eventos Corporativos</span>
+      <h1 class="display">Realize seu evento corporativo<br>no <span class="accent">endereço mais prestigiado</span> do<br>Rio de Janeiro</h1>
+      <p class="lead">Dentro do <strong>Jockey Club</strong>, o Páreo transforma o seu evento em uma celebração memorável.</p>
+      <a href="#contato" class="btn">
+        Solicite um contato
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section class="sobre pad">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-copy reveal">
+        <span class="eyebrow">O Espaço</span>
+        <h2 class="display">O lugar certo para eventos de excelência</h2>
+        <p>Poucos endereços no Rio de Janeiro carregam o prestígio do Jockey Club. É nesse cenário, entre a tradição de uma <span class="hl">instituição centenária</span> e a sofisticação da Zona Sul, que o Páreo recebe eventos corporativos de empresas que precisam mais que um espaço.</p>
+        <p>Nesse contexto, o Páreo se desdobra em ambientes que se moldam a cada ocasião, do salão imponente para grandes celebrações ao espaço reservado para encontros executivos.</p>
+      </div>
+      <div class="sobre-fotos reveal">
+        <Img src="sobre-aerea.jpg" alt="Vista aérea do Jockey Club" class="sobre-foto-aerea" />
+        <Img src="sobre-retrato.jpg" alt="Páreo — ambiente interno" class="sobre-foto-retrato" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AMBIENTES ===== -->
+<section class="ambientes pad">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Ambientes</span>
+      <h2 class="display">Duas possibilidades, uma só assinatura</h2>
+      <p>Cada evento pede uma atmosfera própria. Por isso, sua empresa escolhe entre dois locais distintos, ambos conduzidos pelo mesmo padrão de serviço.</p>
+    </div>
+
+    <div class="amb-grid">
+      <!-- Restaurante -->
+      <article class="amb-card reveal">
+        <div class="amb-photo amb-crossfade">
+          <Img src="restaurante-varanda-1.jpg" alt="Varanda do restaurante Páreo" class="amb-cf-img amb-cf-a" priority />
+          <Img src="restaurante-varanda-2.jpg" alt="Varanda com teto retrátil" class="amb-cf-img amb-cf-b" />
+        </div>
+        <div class="amb-body">
+          <span class="tag">Ambiente 01</span>
+          <h3>O Restaurante</h3>
+          <p class="intro">Para reuniões de negócios e confraternizações, o nosso restaurante abre suas portas.</p>
+          <ul class="amb-list">
+            <li>Varandas com teto retrátil</li>
+            <li>Parrilla de 7 metros e forno à lenha à vista</li>
+            <li>Adega com sommelier</li>
+            <li>Lounge acolhedor</li>
+          </ul>
+          <div class="capacity">Até 150 <span>convidados</span></div>
+        </div>
+      </article>
+
+      <!-- Salão Nobre -->
+      <article class="amb-card reveal">
+        <div class="amb-photo">
+          <Img src="salao-nobre.jpg" alt="Salão Nobre do Páreo" class="amb-single-img" />
+        </div>
+        <div class="amb-body">
+          <span class="tag">Ambiente 02</span>
+          <h3>Salão Nobre</h3>
+          <p class="intro">Com 640m², é o palco ideal para convenções, premiações e festas de fim de ano.</p>
+          <ul class="amb-list">
+            <li>Pé-direito alto e arquitetura clássica</li>
+            <li>Capacidade para plateias numerosas</li>
+            <li>Layout versátil para diferentes formatos</li>
+            <li>Climatização em todo o salão</li>
+          </ul>
+          <div class="capacity">Até 400 <span>convidados</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GASTRONOMIA ===== -->
+<section class="gastro pad">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Gastronomia</span>
+      <h2 class="display">Gastronomia internacional com identidade brasileira</h2>
+      <p class="lead-top">No comando da cozinha, o chef Marcones Deus assina a alta gastronomia do Páreo, combinando ingredientes clássicos com muita brasilidade e sotaques nacionais.</p>
+    </div>
+
+    <div class="carousel-wrap reveal">
+      <div class="carousel" id="carousel">
+        <Img src="gastro-01.jpg" alt="Cortes nobres no Páreo" class="slide" />
+        <Img src="gastro-02.jpg" alt="Ambiente elegante do Páreo" class="slide" />
+        <Img src="gastro-03.jpg" alt="Salada de Polvo e Camarão" class="slide" />
+        <Img src="gastro-04.jpg" alt="Menu japonês do Páreo" class="slide" />
+        <Img src="gastro-05.jpg" alt="Menu exclusivo Chef Michelin" class="slide" />
+        <Img src="gastro-06.jpg" alt="Salmão, pupunha e shiitake grelhados" class="slide" />
+      </div>
+      <div class="carousel-nav">
+        <button class="cbtn" id="prev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="cbtn" id="next" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <p class="closing reveal">O cardápio transita pela culinária brasileira e pelos cortes nobres na parrilla, sempre ajustado ao perfil de cada ocasião.</p>
+  </div>
+</section>
+
+<!-- ===== INFRAESTRUTURA ===== -->
+<section class="infra pad">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Estrutura</span>
+      <h2 class="display">Nos bastidores, uma operação excepcional</h2>
+      <p>Os seus convidados terão uma recepção premium do início ao fim.</p>
+    </div>
+
+    <div class="infra-grid">
+      <div class="infra-item reveal">
+        <div class="infra-ico">
+          <svg viewBox="0 0 48 48"><path d="M24 6c-7 0-12 5-12 12 0 9 12 24 12 24s12-15 12-24c0-7-5-12-12-12z" stroke-linejoin="round"/><circle cx="24" cy="18" r="4.5"/></svg>
+        </div>
+        <h4>Localização privilegiada</h4>
+      </div>
+      <div class="infra-item reveal">
+        <div class="infra-ico">
+          <svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"/><circle cx="33" cy="19" r="4.5"/><path d="M8 40c0-6 4.5-10 10-10s10 4 10 10M28 40c0-5 3-8.5 7.5-8.5S43 35 43 40" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Equipe operacional</h4>
+      </div>
+      <div class="infra-item reveal">
+        <div class="infra-ico">
+          <svg viewBox="0 0 48 48"><path d="M10 19v10h7l9 7V12l-9 7h-7z" stroke-linejoin="round"/><path d="M32 17c2.5 2.5 2.5 11.5 0 14M37 12c5 5 5 19 0 24" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Som e iluminação</h4>
+      </div>
+      <div class="infra-item reveal">
+        <div class="infra-ico">
+          <svg viewBox="0 0 48 48"><path d="M8 20h26a6 6 0 1 0-6-6M8 28h32a6 6 0 1 1-6 6M8 24h20" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Climatizadores</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIA ===== -->
+<section class="galeria pad">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Galeria</span>
+      <h2 class="display">Um convite visual</h2>
+      <p>Conheça o Páreo antes mesmo da sua visita.</p>
+    </div>
+
+    <div class="gal-grid reveal">
+      <!-- topo: vídeo + 2 fotos laterais -->
+      <div class="gal-top">
+        <div class="gal-video">
+          <Video
+            src="/videos/galeria.mp4"
+            poster="/images/gal-poster.jpg"
+            title="Páreo — Evento no Jockey Club Rio de Janeiro"
+            description="Evento no Páreo, dentro do Jockey Club do Rio de Janeiro."
+            uploadDate="2026-05-16"
+          />
+        </div>
+        <div class="gal-sides">
+          <div class="gal-side-slot">
+            <Img src="gal-05.jpg" alt="Salão corporativo do Páreo" class="gal-side-img" />
+          </div>
+          <div class="gal-side-slot">
+            <Img src="gal-07.jpg" alt="Salão Nobre do Páreo" class="gal-side-img" />
+          </div>
+        </div>
+      </div>
+      <!-- rodapé: 6 fotos em 3 colunas -->
+      <div class="gal-bottom">
+        <Img src="gal-03.jpg" alt="Páreo — galeria" class="gal-img" />
+        <Img src="gal-04.jpg" alt="Páreo — galeria" class="gal-img" />
+        <Img src="gal-01.jpg" alt="Páreo — galeria" class="gal-img" />
+        <Img src="gal-06.jpg" alt="Páreo — galeria" class="gal-img" />
+        <Img src="gal-02.jpg" alt="Páreo — galeria" class="gal-img" />
+        <Img src="gal-08.jpg" alt="Páreo — galeria" class="gal-img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section class="contato pad" id="contato">
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="wrap">
+    <div class="contato-grid">
+      <div class="contato-copy reveal">
+        <span class="eyebrow">Contato</span>
+        <h2 class="display">Preparado para planejar seu próximo evento de sucesso?</h2>
+        <p>Preencha o formulário para receber nosso contato.</p>
+      </div>
+
+      <LeadForm
+        formId="lead-form"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-logo"><Img src="/images/placeholder.jpg" alt="Páreo" /></div>
+      <div class="foot-copy">
+        Copyright © 2026 Páreo · Todos os direitos reservados
+        <span class="foot-dev">
+          Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener" class="foot-dev-link"><Img src="logo-dmove.avif" alt="Dmove" class="foot-dev-logo" /></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</Base>
+<script>
+  import '../scripts/index.js';
+</script>
