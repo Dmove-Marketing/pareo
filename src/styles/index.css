@@ -100,10 +100,10 @@
     display:inline-flex;align-items:center;
   }
   .brand img{
-    height:42px;width:auto;display:block;
+    height:90px;width:auto;display:block;
     transition:height .4s ease;
   }
-  header.bar.scrolled .brand img{height:34px}
+  header.bar.scrolled .brand img{height:70px}
   .bar .mini-cta{
     font-family:'Jost',sans-serif;
     font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
@@ -414,7 +414,7 @@
   footer.foot{background:var(--bg);border-top:1px solid var(--line);padding:60px 0}
   .foot-inner{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
   .foot-logo{display:inline-flex;align-items:center}
-  .foot-logo img{height:64px;width:auto;display:block}
+  .foot-logo img{height:90px;width:auto;display:block}
   .foot-copy{font-size:.85rem;color:var(--muted-2);letter-spacing:.03em;display:flex;flex-direction:column;align-items:center;gap:10px}
   .foot-dev{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;color:var(--muted-2);letter-spacing:.03em}
   .foot-dev-link{display:inline-flex;align-items:center}
