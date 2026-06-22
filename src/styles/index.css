@@ -191,8 +191,8 @@
   /* ---------- SOBRE ---------- */
   .sobre{background:var(--bg-2)}
   .sobre-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-  .sobre-copy{text-align:center}
-  .sobre-copy .eyebrow{margin-bottom:1.1rem;justify-content:center}
+  .sobre-copy{text-align:left}
+  .sobre-copy .eyebrow{margin-bottom:1.1rem;justify-content:flex-start}
   .sobre-copy h2{font-size:clamp(1.625rem,3.75vw,3.125rem);color:var(--cream);margin-bottom:1.6rem}
   .sobre-copy p{color:var(--muted);margin-bottom:1.2rem;font-size:1.05rem;text-align:justify}
   .sobre-copy p .hl{color:var(--cream)}
@@ -324,9 +324,9 @@
   }
   .contato .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,8,8,.85),rgba(8,8,8,.92))}
   .contato .wrap{position:relative;z-index:2}
-  .contato-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
-  .contato-copy{text-align:center}
-  .contato-copy .eyebrow{margin-bottom:1.2rem;justify-content:center}
+  .contato-grid{display:grid;grid-template-columns:1.1fr 1.4fr;gap:64px;align-items:center}
+  .contato-copy{text-align:left}
+  .contato-copy .eyebrow{margin-bottom:1.2rem;justify-content:flex-start}
   .contato-copy h2{font-size:clamp(1.625rem,3.75vw,3.125rem);color:var(--cream);margin-bottom:1.3rem}
   .contato-copy p{color:var(--muted);font-size:1.08rem}
 
@@ -336,6 +336,8 @@
     border-radius:5px;
     padding:42px 40px;
     backdrop-filter:blur(4px);
+    max-width:100%!important;
+    width:100%;
   }
   .field{margin-bottom:20px}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
