@@ -84,7 +84,10 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
       submitText="Solicitar orçamento"
       honeypot
       fields={[
-        { name: 'Nome',     type: 'text',  label: 'Nome completo', placeholder: 'Seu nome', required: true, full: true },
+        { type: 'row', fields: [
+          { name: 'Nome',    type: 'text', label: 'Nome completo', placeholder: 'Seu nome',    required: true  },
+          { name: 'Empresa', type: 'text', label: 'Empresa',       placeholder: 'Sua empresa', required: false }
+        ]},
         { type: 'row', fields: [
           { name: 'WhatsApp', type: 'tel',   label: 'WhatsApp', placeholder: '(00) 00000-0000', required: true },
           { name: 'E-mail',   type: 'email', label: 'E-mail',   placeholder: 'seu@email.com',   required: true }

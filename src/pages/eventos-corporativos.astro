@@ -217,7 +217,10 @@ import '../styles/eventos-corporativos.css';
         submitText="Enviar solicitação"
         honeypot
         fields={[
-          { name: 'Nome', type: 'text', placeholder: 'Nome', required: true, full: true },
+          { type: 'row', fields: [
+            { name: 'Nome',    type: 'text', placeholder: 'Nome',    required: true  },
+            { name: 'Empresa', type: 'text', placeholder: 'Empresa', required: false }
+          ]},
           { name: 'WhatsApp', type: 'tel', placeholder: 'WhatsApp', required: true },
           { name: 'E-mail', type: 'email', placeholder: 'E-mail', required: true },
           { name: 'Data do evento', type: 'date', placeholder: 'Data do evento', required: true },
