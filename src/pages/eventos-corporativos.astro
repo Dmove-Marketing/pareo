@@ -217,14 +217,10 @@ import '../styles/eventos-corporativos.css';
         submitText="Enviar solicitação"
         honeypot
         fields={[
-          { type: 'row', fields: [
-            { name: 'Nome',    type: 'text', placeholder: 'Nome',    required: true  },
-            { name: 'Empresa', type: 'text', placeholder: 'Empresa', required: false }
-          ]},
+          { name: 'Nome',    type: 'text', placeholder: 'Nome',    required: true  },
+          { name: 'Empresa', type: 'text', placeholder: 'Empresa', required: false },
           { name: 'WhatsApp', type: 'tel', placeholder: 'WhatsApp', required: true },
           { name: 'E-mail', type: 'email', placeholder: 'E-mail', required: true },
-          { name: 'Data do evento', type: 'date', placeholder: 'Data do evento', required: true },
-          { name: 'Convidados', type: 'number', placeholder: 'Nº de convidados', required: true },
           { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, full: true, options: [
             { value: '', label: 'Tipo de evento' },
             { value: 'Convenção corporativa', label: 'Convenção corporativa' },
@@ -234,6 +230,8 @@ import '../styles/eventos-corporativos.css';
             { value: 'Lançamento de produto', label: 'Lançamento de produto' },
             { value: 'Outro', label: 'Outro' }
           ] },
+          { name: 'Data do evento', type: 'date', placeholder: 'Data do evento', required: true },
+          { name: 'Convidados', type: 'number', placeholder: 'Nº de convidados', required: true },
           { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
         ]}
       />
