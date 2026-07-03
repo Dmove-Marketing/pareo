@@ -29,15 +29,27 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
+const isExternal = src.startsWith('http://') || src.startsWith('https://');
 const key = `/src/assets/images/${src}`;
-const mod = images[key];
+const mod = !isExternal ? images[key] : undefined;
 
-if (!mod) {
+if (!isExternal && !mod) {
   console.warn(`[Img] imagem não encontrada: ${key}`);
 }
 ---
 
-{mod ? (
+{isExternal ? (
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height ?? undefined}
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : undefined}
+    class={className}
+    style={style}
+  />
+) : mod ? (
   <Image
     src={mod.default}
     alt={alt}

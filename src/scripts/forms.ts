@@ -7,10 +7,32 @@ function buildFonte(tracking: Record<string, string>): string {
   return tracking.landing_page || window.location.pathname;
 }
 
+function validateForm(form: HTMLFormElement): boolean {
+  let valid = true;
+  form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+    'input[required], select[required], textarea[required]'
+  ).forEach((el) => {
+    const isHidden = el.type === 'hidden' || (el as HTMLInputElement).name === 'website';
+    if (isHidden) return;
+    const empty = !el.value.trim();
+    if (empty) {
+      el.style.borderColor = '#ef4444';
+      valid = false;
+    } else {
+      el.style.borderColor = '';
+    }
+  });
+  return valid;
+}
+
 export function initForms() {
   const forms = document.querySelectorAll<HTMLFormElement>('form[data-form-id]');
   forms.forEach((form) => {
+    if (form.dataset.formsInit) return;
+    form.dataset.formsInit = '1';
+
     let started = false;
+    let submitting = false;
     const formId    = form.dataset.formId!;
     const project   = form.dataset.project || window.location.hostname;
     const apiUrl    = form.dataset.apiUrl ?? '';
@@ -37,6 +59,10 @@ export function initForms() {
       const hp = form.querySelector<HTMLInputElement>('[name="website"]');
       if (hp && hp.value) return;
 
+      if (submitting) return;
+      if (!validateForm(form)) return;
+
+      submitting = true;
       const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]');
       const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
       const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');
@@ -101,6 +127,7 @@ export function initForms() {
           form.innerHTML = `<div style="text-align:center;padding:2rem"><div style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;background:#2563eb;border-radius:50%;color:white;font-size:1.5rem">✓</div><h3 style="font-size:1.15rem;font-weight:600;margin-bottom:4px">Enviado com sucesso!</h3><p style="color:#666;font-size:0.9rem">Em breve entraremos em contato.</p></div>`;
         }
       } catch (err: any) {
+        submitting = false;
         (window as any).dataLayer?.push({ event: 'form_error', form_id: formId, error: err.message });
         if (msgEl) {
           msgEl.innerHTML = 'Erro ao enviar. Tente novamente mais tarde.';
