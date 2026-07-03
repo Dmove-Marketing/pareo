@@ -6,7 +6,7 @@ import { getImage } from 'astro:assets';
 import rawDmove from '../assets/images/Versao-Principal-Negativo-scaled-e1750426923582.avif';
 const dmoveLogo = await getImage({ src: rawDmove, format: 'avif' });
 const LOGO_SRC  = 'https://media.dmove.com.br/clients/restaurantepareo/photos/logo.webp';
-const HERO_SRC  = 'https://media.dmove.com.br/clients/restaurantepareo/photos/Com-uma-arquitetura-histÃ³rica-e-moderna_-a-Tribuna-C-Ã©-ideal-para-vocÃª-fazer-o-seu-evento.-A-Tr-_1_.webp';
+const HERO_SRC  = 'https://media.dmove.com.br/clients/restaurantepareo/photos/hero1.webp';
 import '../styles/bio.css';
 
 const MAPS_URL = 'https://maps.google.com/?q=Rua+Mario+Ribeiro,+410,+Jockey+Club+Brasileiro,+Rio+de+Janeiro,+RJ,+22470-060';
@@ -19,6 +19,17 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
   ogImage="/images/og-index.jpg"
   noIndex={true}
   whatsappFormId="whats-corporativo"
+  whatsappShowEmpresa={true}
+  whatsappEventOptions={[
+    { value: 'Evento corporativo',           label: 'Evento corporativo'           },
+    { value: 'Confraternização corporativa', label: 'Confraternização corporativa' },
+    { value: 'Offsite corporativo',          label: 'Offsite corporativo'          },
+    { value: 'Happy Hour',                   label: 'Happy Hour'                   },
+    { value: 'Masterclass e Palestras',      label: 'Masterclass e Palestras'      },
+    { value: 'Reuniões de Networking',       label: 'Reuniões de Networking'       },
+    { value: 'Workshops e Seminários',       label: 'Workshops e Seminários'       },
+    { value: 'Outros',                       label: 'Outros'                       },
+  ]}
 >
   <Fragment slot="head">
     <link
@@ -29,7 +40,7 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
 
   <!-- HERO -->
   <section class="bio-hero">
-    <img src={HERO_SRC} alt="Tribuna C do Páreo no Jockey Club Brasileiro" class="bio-hero-img" />
+    <img src={HERO_SRC} alt="Tribuna C do Páreo no Jockey Club Brasileiro" class="bio-hero-img" style="object-position: center 70%;" />
     <div class="bio-hero-overlay"></div>
     <div class="bio-hero-content">
       <img src={LOGO_SRC} alt="Páreo" class="bio-logo" />
@@ -86,7 +97,7 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
       fields={[
         { type: 'row', fields: [
           { name: 'Nome',    type: 'text', label: 'Nome completo', placeholder: 'Seu nome',    required: true  },
-          { name: 'Empresa', type: 'text', label: 'Empresa',       placeholder: 'Sua empresa', required: false }
+          { name: 'Empresa', type: 'text', label: 'Empresa',       placeholder: 'Sua empresa', required: true  }
         ]},
         { type: 'row', fields: [
           { name: 'WhatsApp', type: 'tel',   label: 'WhatsApp', placeholder: '(00) 00000-0000', required: true },

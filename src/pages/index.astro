@@ -3,7 +3,6 @@
 import Base from '../layouts/Base.astro';
 import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
-import Video from '../components/ui/Video.astro';
 import LeadForm from '../components/forms/LeadForm.astro';
 import '../styles/index.css';
 ---
@@ -12,18 +11,28 @@ import '../styles/index.css';
   title="Eventos Corporativos no Jockey Club | Páreo"
   description="Eventos corporativos no endereço mais prestigiado do Rio de Janeiro. Dentro do Jockey Club, o Páreo recebe sua empresa no Salão Nobre ou no restaurante."
   ogImage="/images/og-index.jpg"
+  whatsappFormId="whats-index"
+  whatsappEventOptions={[
+    { value: 'Convenção corporativa',           label: 'Convenção corporativa'            },
+    { value: 'Confraternização / Fim de ano',   label: 'Confraternização / Fim de ano'    },
+    { value: 'Premiação',                       label: 'Premiação'                        },
+    { value: 'Reunião de negócios',             label: 'Reunião de negócios'              },
+    { value: 'Lançamento de produto',           label: 'Lançamento de produto'            },
+    { value: 'Happy Hours',                     label: 'Happy Hours'                      },
+    { value: 'Masterclass e Palestras',         label: 'Masterclass e Palestras'          },
+    { value: 'Offsite corporativo',             label: 'Offsite corporativo'              },
+    { value: 'Outro',                           label: 'Outro'                            },
+  ]}
 >
 <!-- ===== HEADER ===== -->
 <header class="bar" id="bar">
-  <a href="#" class="brand"><Img src="logo-pareo.png" alt="Páreo" priority /></a>
+  <a href="#" class="brand"><Img src="/images/placeholder.jpg" alt="Páreo" priority /></a>
   <a href="#contato" class="mini-cta">Solicite um contato</a>
 </header>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="bg">
-    <Img src="hero.jpg" alt="" priority width={1920} class="hero-bg-img" />
-  </div>
+  <div class="bg"><a class="bg-folder" href="https://drive.google.com/drive/folders/1fzPcULBzWDUbLrlgFGWKb7bcV90ueGd-" target="_blank" rel="noopener">Foto de fundo</a></div>
   <div class="veil"></div>
   <div class="wrap">
     <div class="hero-inner">
@@ -48,10 +57,7 @@ import '../styles/index.css';
         <p>Poucos endereços no Rio de Janeiro carregam o prestígio do Jockey Club. É nesse cenário, entre a tradição de uma <span class="hl">instituição centenária</span> e a sofisticação da Zona Sul, que o Páreo recebe eventos corporativos de empresas que precisam mais que um espaço.</p>
         <p>Nesse contexto, o Páreo se desdobra em ambientes que se moldam a cada ocasião, do salão imponente para grandes celebrações ao espaço reservado para encontros executivos.</p>
       </div>
-      <div class="sobre-fotos reveal">
-        <Img src="sobre-aerea.jpg" alt="Vista aérea do Jockey Club" class="sobre-foto-aerea" />
-        <Img src="sobre-retrato.jpg" alt="Páreo — ambiente interno" class="sobre-foto-retrato" />
-      </div>
+      <a class="sobre-photo ph reveal" href="https://drive.google.com/drive/folders/10-K7U9eZOFijOCVSiTgp6-ZbI8LMex57" target="_blank" rel="noopener" data-label="Foto horizontal"></a>
     </div>
   </div>
 </section>
@@ -68,10 +74,7 @@ import '../styles/index.css';
     <div class="amb-grid">
       <!-- Restaurante -->
       <article class="amb-card reveal">
-        <div class="amb-photo amb-crossfade">
-          <Img src="restaurante-varanda-1.jpg" alt="Varanda do restaurante Páreo" class="amb-cf-img amb-cf-a" priority />
-          <Img src="restaurante-varanda-2.jpg" alt="Varanda com teto retrátil" class="amb-cf-img amb-cf-b" />
-        </div>
+        <a class="amb-photo ph" href="https://drive.google.com/drive/folders/12P8VD8NzlxDxu-t1R0AEl6FAOxfxMmB0" target="_blank" rel="noopener" data-label="Foto do restaurante"></a>
         <div class="amb-body">
           <span class="tag">Ambiente 01</span>
           <h3>O Restaurante</h3>
@@ -88,9 +91,7 @@ import '../styles/index.css';
 
       <!-- Salão Nobre -->
       <article class="amb-card reveal">
-        <div class="amb-photo">
-          <Img src="salao-nobre.jpg" alt="Salão Nobre do Páreo" class="amb-single-img" />
-        </div>
+        <a class="amb-photo ph" href="https://drive.google.com/drive/folders/1a50jFC74P5_YNbu0QY6xtxO-ujoDZfwp" target="_blank" rel="noopener" data-label="Foto do salão nobre"></a>
         <div class="amb-body">
           <span class="tag">Ambiente 02</span>
           <h3>Salão Nobre</h3>
@@ -119,12 +120,12 @@ import '../styles/index.css';
 
     <div class="carousel-wrap reveal">
       <div class="carousel" id="carousel">
-        <Img src="gastro-01.jpg" alt="Cortes nobres no Páreo" class="slide" />
-        <Img src="gastro-02.jpg" alt="Ambiente elegante do Páreo" class="slide" />
-        <Img src="gastro-03.jpg" alt="Salada de Polvo e Camarão" class="slide" />
-        <Img src="gastro-04.jpg" alt="Menu japonês do Páreo" class="slide" />
-        <Img src="gastro-05.jpg" alt="Menu exclusivo Chef Michelin" class="slide" />
-        <Img src="gastro-06.jpg" alt="Salmão, pupunha e shiitake grelhados" class="slide" />
+        <a class="slide ph" href="https://drive.google.com/drive/folders/1JQfleFmnkuCnBf3o1QtSN-M5xv8_2Ybn" target="_blank" rel="noopener" data-label="Foto horizontal 01"></a>
+        <a class="slide ph" href="https://drive.google.com/drive/folders/1JQfleFmnkuCnBf3o1QtSN-M5xv8_2Ybn" target="_blank" rel="noopener" data-label="Foto horizontal 02"></a>
+        <a class="slide ph" href="https://drive.google.com/drive/folders/1JQfleFmnkuCnBf3o1QtSN-M5xv8_2Ybn" target="_blank" rel="noopener" data-label="Foto horizontal 03"></a>
+        <a class="slide ph" href="https://drive.google.com/drive/folders/1JQfleFmnkuCnBf3o1QtSN-M5xv8_2Ybn" target="_blank" rel="noopener" data-label="Foto horizontal 04"></a>
+        <a class="slide ph" href="https://drive.google.com/drive/folders/1JQfleFmnkuCnBf3o1QtSN-M5xv8_2Ybn" target="_blank" rel="noopener" data-label="Foto horizontal 05"></a>
+        <a class="slide ph" href="https://drive.google.com/drive/folders/1JQfleFmnkuCnBf3o1QtSN-M5xv8_2Ybn" target="_blank" rel="noopener" data-label="Foto horizontal 06"></a>
       </div>
       <div class="carousel-nav">
         <button class="cbtn" id="prev" aria-label="Anterior">
@@ -188,35 +189,15 @@ import '../styles/index.css';
     </div>
 
     <div class="gal-grid reveal">
-      <!-- topo: vídeo + 2 fotos laterais -->
-      <div class="gal-top">
-        <div class="gal-video">
-          <Video
-            src="/videos/galeria.mp4"
-            poster="/images/gal-poster.jpg"
-            title="Páreo — Evento no Jockey Club Rio de Janeiro"
-            description="Evento no Páreo, dentro do Jockey Club do Rio de Janeiro."
-            uploadDate="2026-05-16"
-          />
-        </div>
-        <div class="gal-sides">
-          <div class="gal-side-slot">
-            <Img src="gal-05.jpg" alt="Salão corporativo do Páreo" class="gal-side-img" />
-          </div>
-          <div class="gal-side-slot">
-            <Img src="gal-07.jpg" alt="Salão Nobre do Páreo" class="gal-side-img" />
-          </div>
-        </div>
-      </div>
-      <!-- rodapé: 6 fotos em 3 colunas -->
-      <div class="gal-bottom">
-        <Img src="gal-03.jpg" alt="Páreo — galeria" class="gal-img" />
-        <Img src="gal-04.jpg" alt="Páreo — galeria" class="gal-img" />
-        <Img src="gal-01.jpg" alt="Páreo — galeria" class="gal-img" />
-        <Img src="gal-06.jpg" alt="Páreo — galeria" class="gal-img" />
-        <Img src="gal-02.jpg" alt="Páreo — galeria" class="gal-img" />
-        <Img src="gal-08.jpg" alt="Páreo — galeria" class="gal-img" />
-      </div>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 01"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 02"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 03"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 04"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 05"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 06"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 07"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 08"></a>
+      <a class="ph" href="https://drive.google.com/drive/folders/1-l7ruiw3nmfw2SCicdqTVDmk-elCkH-N" target="_blank" rel="noopener" data-label="Foto 09"></a>
     </div>
   </div>
 </section>
@@ -241,36 +222,7 @@ import '../styles/index.css';
         submitText="Enviar solicitação"
         honeypot
         fields={[
-          { name: 'Nome',           type: 'text',     placeholder: 'Nome',                                  required: true,  autocomplete: 'name' },
-          { type: 'row', fields: [
-            { name: 'WhatsApp', type: 'text',  placeholder: 'WhatsApp', required: true, autocomplete: 'tel',   mask: 'phone' },
-            { name: 'E-mail',   type: 'email', placeholder: 'E-mail',   required: true, autocomplete: 'email' },
-          ]},
-          { name: 'Tipo de evento', type: 'select',   placeholder: '',                                      required: true,  options: [
-            { value: '',                                     label: 'Tipo de evento',                      disabled: true, selected: true },
-            { value: 'Aniversário',                          label: 'Aniversário' },
-            { value: 'Aniversário debutante',                label: 'Aniversário debutante' },
-            { value: 'Bodas',                                label: 'Bodas' },
-            { value: 'Casamento',                            label: 'Casamento' },
-            { value: 'Confraternização corporativa',         label: 'Confraternização corporativa' },
-            { value: 'Confraternização social',              label: 'Confraternização social' },
-            { value: 'Corporativo',                          label: 'Corporativo' },
-            { value: 'Feiras e Exposições',                  label: 'Feiras e Exposições' },
-            { value: 'Formatura',                            label: 'Formatura' },
-            { value: 'Happy Hours',                          label: 'Happy Hours' },
-            { value: 'Masterclass e Palestras',              label: 'Masterclass e Palestras' },
-            { value: 'Mentorias e Treinamentos',             label: 'Mentorias e Treinamentos' },
-            { value: 'Offsite corporativo',                  label: 'Offsite corporativo' },
-            { value: 'Reuniões de Networking',               label: 'Reuniões de Networking' },
-            { value: 'Shows e Festivais',                    label: 'Shows e Festivais' },
-            { value: 'Workshops, Conferências e Seminários', label: 'Workshops, Conferências e Seminários' },
-            { value: 'Outros',                               label: 'Outros' },
-          ]},
-          { type: 'row', fields: [
-            { name: 'Data do evento', type: 'date',   placeholder: 'Data do evento', required: true },
-            { name: 'Convidados',     type: 'number', placeholder: 'Nº de convidados', required: true, min: '1' },
-          ]},
-          { name: 'Mensagem',       type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false },
+
         ]}
       />
     </div>
@@ -281,13 +233,8 @@ import '../styles/index.css';
 <footer class="foot">
   <div class="wrap">
     <div class="foot-inner">
-      <div class="foot-logo"><Img src="logo-pareo.png" alt="Páreo" /></div>
-      <div class="foot-copy">
-        Copyright © 2026 Páreo · Todos os direitos reservados
-        <span class="foot-dev">
-          Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener" class="foot-dev-link"><Img src="logo-dmove.avif" alt="Dmove" class="foot-dev-logo" /></a>
-        </span>
-      </div>
+      <div class="foot-logo"><Img src="/images/placeholder.jpg" alt="Páreo" /></div>
+      <div class="foot-copy">Copyright © 2026 Páreo · Todos os direitos reservados</div>
     </div>
   </div>
 </footer>

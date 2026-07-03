@@ -6,7 +6,7 @@ import { getImage } from 'astro:assets';
 import rawDmove from '../assets/images/Versao-Principal-Negativo-scaled-e1750426923582.avif';
 const dmoveLogo = await getImage({ src: rawDmove, format: 'avif' });
 const LOGO_SRC  = 'https://media.dmove.com.br/clients/restaurantepareo/photos/logo.webp';
-const HERO_SRC  = 'https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20260617-WA0059.webp';
+const HERO_SRC  = 'https://media.dmove.com.br/clients/restaurantepareo/photos/hero.webp';
 import '../styles/bio.css';
 
 const MAPS_URL = 'https://maps.google.com/?q=Rua+Mario+Ribeiro,+410,+Jockey+Club+Brasileiro,+Rio+de+Janeiro,+RJ,+22470-060';
@@ -19,6 +19,16 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
   ogImage="/images/og-index.jpg"
   noIndex={true}
   whatsappFormId="whats-social"
+  whatsappEventOptions={[
+    { value: 'Aniversário',             label: 'Aniversário'            },
+    { value: 'Aniversário debutante',   label: 'Aniversário debutante'  },
+    { value: 'Bodas',                   label: 'Bodas'                  },
+    { value: 'Casamento',               label: 'Casamento'              },
+    { value: 'Confraternização social', label: 'Confraternização social' },
+    { value: 'Formatura',               label: 'Formatura'              },
+    { value: 'Shows e Festivais',       label: 'Shows e Festivais'      },
+    { value: 'Outros',                  label: 'Outros'                 },
+  ]}
 >
   <Fragment slot="head">
     <link
@@ -29,7 +39,7 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
 
   <!-- HERO -->
   <section class="bio-hero">
-    <img src={HERO_SRC} alt="Salão do Páreo preparado para evento social no Jockey Club" class="bio-hero-img" style="object-position: center center;" />
+    <img src={HERO_SRC} alt="Salão do Páreo preparado para evento social no Jockey Club" class="bio-hero-img" style="object-position: center 70%;" />
     <div class="bio-hero-overlay"></div>
     <div class="bio-hero-content">
       <img src={LOGO_SRC} alt="Páreo" class="bio-logo" />

@@ -11,6 +11,19 @@ import '../styles/eventos-corporativos.css';
   title="Páreo · Eventos Corporativos no Jockey Club"
   description="Dentro do Jockey Club, a Páreo transforma o seu evento corporativo em uma celebração memorável. Restaurante e Salão Nobre no endereço mais prestigiado do Rio de Janeiro."
   ogImage="hero.webp"
+  whatsappFormId="whats-corporativos"
+  whatsappShowEmpresa={true}
+  whatsappEventOptions={[
+    { value: 'Convenção corporativa',           label: 'Convenção corporativa'          },
+    { value: 'Confraternização / Fim de ano',   label: 'Confraternização / Fim de ano'  },
+    { value: 'Premiação',                       label: 'Premiação'                      },
+    { value: 'Reunião de negócios',             label: 'Reunião de negócios'            },
+    { value: 'Lançamento de produto',           label: 'Lançamento de produto'          },
+    { value: 'Happy Hours',                     label: 'Happy Hours'                    },
+    { value: 'Masterclass e Palestras',         label: 'Masterclass e Palestras'        },
+    { value: 'Offsite corporativo',             label: 'Offsite corporativo'            },
+    { value: 'Outro',                           label: 'Outro'                          },
+  ]}
 >
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
@@ -218,7 +231,7 @@ import '../styles/eventos-corporativos.css';
         honeypot
         fields={[
           { name: 'Nome',    type: 'text', placeholder: 'Nome',    required: true  },
-          { name: 'Empresa', type: 'text', placeholder: 'Empresa', required: false },
+          { name: 'Empresa', type: 'text', placeholder: 'Empresa', required: true },
           { name: 'WhatsApp', type: 'tel', placeholder: 'WhatsApp', required: true },
           { name: 'E-mail', type: 'email', placeholder: 'E-mail', required: true },
           { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, full: true, options: [

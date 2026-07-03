@@ -4,20 +4,51 @@
 // Uso: incluído automaticamente pelo Base.astro via config.json
 // Personalize por página passando formId diferente (ex: "whats-casamentos")
 
-interface Props {
-  phone: string;          // DDI + DDD + número, só dígitos: 5511999999999
-  formId?: string;        // ID para rastreamento no n8n (ex: "whats-casamentos")
-  submitUrl?: string;     // Webhook n8n — envia em background antes de abrir o WhatsApp
-  showAfterMs?: number;   // Delay para aparecer o botão (ms)
-  position?: 'bottom-right' | 'bottom-left';
+interface EventOption {
+  value: string;
+  label: string;
 }
 
+interface Props {
+  phone?: string;          // DDI + DDD + número, só dígitos: 5511999999999
+  formId?: string;        // ID para rastreamento no n8n (ex: "whats-casamentos")
+  submitUrl?: string;     // Webhook n8n
+  showAfterMs?: number;   // Delay para aparecer o botão (ms)
+  position?: 'bottom-right' | 'bottom-left';
+  eventOptions?: EventOption[]; // Opções do select "Tipo de evento" — personalize por página
+  showEmail?: boolean;    // Exibe campo E-mail no passo 1 (padrão: true)
+  showEmpresa?: boolean;  // Exibe campo Empresa no passo 1 (padrão: false — ative em páginas corporativas)
+}
+
+const DEFAULT_EVENT_OPTIONS: EventOption[] = [
+  { value: 'Aniversário',                          label: 'Aniversário' },
+  { value: 'Aniversário debutante',                label: 'Aniversário debutante' },
+  { value: 'Bodas',                                label: 'Bodas' },
+  { value: 'Casamento',                            label: 'Casamento' },
+  { value: 'Confraternização corporativa',         label: 'Confraternização corporativa' },
+  { value: 'Confraternização social',              label: 'Confraternização social' },
+  { value: 'Corporativo',                          label: 'Corporativo' },
+  { value: 'Feiras e Exposições',                  label: 'Feiras e Exposições' },
+  { value: 'Formatura',                            label: 'Formatura' },
+  { value: 'Happy Hours',                          label: 'Happy Hours' },
+  { value: 'Masterclass e Palestras',              label: 'Masterclass e Palestras' },
+  { value: 'Mentorias e Treinamentos',             label: 'Mentorias e Treinamentos' },
+  { value: 'Offsite corporativo',                  label: 'Offsite corporativo' },
+  { value: 'Reuniões de Networking',               label: 'Reuniões de Networking' },
+  { value: 'Shows e Festivais',                    label: 'Shows e Festivais' },
+  { value: 'Workshops, Conferências e Seminários', label: 'Workshops, Conferências e Seminários' },
+  { value: 'Outros',                               label: 'Outros' },
+];
+
 const {
-  phone,
-  formId      = 'whats-popup',
-  submitUrl   = '',
-  showAfterMs = 3000,
-  position    = 'bottom-right',
+  phone        = '',
+  formId       = 'whats-popup',
+  submitUrl    = '',
+  showAfterMs  = 3000,
+  position     = 'bottom-right',
+  eventOptions = DEFAULT_EVENT_OPTIONS,
+  showEmail    = true,
+  showEmpresa  = false,
 } = Astro.props;
 
 const cleanPhone = phone.replace(/\D/g, '');
@@ -78,6 +109,18 @@ const cleanPhone = phone.replace(/\D/g, '');
             />
             <span class="wap-field-error" id="wap-err-nome"></span>
           </div>
+          {showEmpresa && (
+            <div class="wap-field">
+              <input
+                class="wap-input"
+                type="text"
+                name="Empresa"
+                placeholder="Empresa *"
+                autocomplete="organization"
+              />
+              <span class="wap-field-error" id="wap-err-empresa"></span>
+            </div>
+          )}
           <div class="wap-field">
             <input
               class="wap-input"
@@ -89,6 +132,18 @@ const cleanPhone = phone.replace(/\D/g, '');
             />
             <span class="wap-field-error" id="wap-err-whats"></span>
           </div>
+          {showEmail && (
+            <div class="wap-field">
+              <input
+                class="wap-input"
+                type="email"
+                name="E-mail"
+                placeholder="E-mail *"
+                autocomplete="email"
+              />
+              <span class="wap-field-error" id="wap-err-email"></span>
+            </div>
+          )}
           <button type="button" class="wap-btn" id="wap-next">
             Próximo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
@@ -109,23 +164,9 @@ const cleanPhone = phone.replace(/\D/g, '');
           <div class="wap-field">
             <select class="wap-select" name="Tipo de evento">
               <option value="" disabled selected>Tipo de evento *</option>
-              <option>Aniversário</option>
-              <option>Aniversário debutante</option>
-              <option>Bodas</option>
-              <option>Casamento</option>
-              <option>Confraternização corporativa</option>
-              <option>Confraternização social</option>
-              <option>Corporativo</option>
-              <option>Feiras e Exposições</option>
-              <option>Formatura</option>
-              <option>Happy Hours</option>
-              <option>Masterclass e Palestras</option>
-              <option>Mentorias e Treinamentos</option>
-              <option>Offsite corporativo</option>
-              <option>Reuniões de Networking</option>
-              <option>Shows e Festivais</option>
-              <option>Workshops, Conferências e Seminários</option>
-              <option>Outros</option>
+              {eventOptions.map((opt) => (
+                <option value={opt.value}>{opt.label}</option>
+              ))}
             </select>
             <span class="wap-field-error" id="wap-err-tipo"></span>
           </div>
@@ -285,19 +326,31 @@ const cleanPhone = phone.replace(/\D/g, '');
 
     // Step navigation
     nextBtn.addEventListener('click', () => {
-      const nome  = form.querySelector<HTMLInputElement>('[name="Nome"]');
-      const whats = form.querySelector<HTMLInputElement>('[name="WhatsApp"]');
+      const nome    = form.querySelector<HTMLInputElement>('[name="Nome"]');
+      const empresa = form.querySelector<HTMLInputElement>('[name="Empresa"]');
+      const whats   = form.querySelector<HTMLInputElement>('[name="WhatsApp"]');
+      const email   = form.querySelector<HTMLInputElement>('[name="E-mail"]');
       let ok = true;
 
       clearError(document.getElementById('wap-err-nome'));
+      clearError(document.getElementById('wap-err-empresa'));
       clearError(document.getElementById('wap-err-whats'));
+      clearError(document.getElementById('wap-err-email'));
 
       if (!nome?.value.trim()) {
         showError(document.getElementById('wap-err-nome'), 'Informe seu nome');
         ok = false;
       }
+      if (empresa && !empresa.value.trim()) {
+        showError(document.getElementById('wap-err-empresa'), 'Informe o nome da empresa');
+        ok = false;
+      }
       if (!whats?.value.trim() || whats.value.replace(/\D/g, '').length < 10) {
         showError(document.getElementById('wap-err-whats'), 'Informe um WhatsApp válido');
+        ok = false;
+      }
+      if (email && (!email.value.trim() || !email.value.includes('@'))) {
+        showError(document.getElementById('wap-err-email'), 'Informe um e-mail válido');
         ok = false;
       }
       if (!ok) return;
@@ -347,30 +400,34 @@ const cleanPhone = phone.replace(/\D/g, '');
       if (submitBtn) submitBtn.disabled = true;
       if (btnText && btnLoad) { btnText.style.display = 'none'; btnLoad.style.display = 'block'; }
 
-      const nome   = (form.querySelector<HTMLInputElement>('[name="Nome"]')?.value || '').trim();
-      const whatsV = (form.querySelector<HTMLInputElement>('[name="WhatsApp"]')?.value || '').trim();
-      const tipoV  = tipo?.value || '';
-      const dataV  = data?.value || '';
-      const convV  = conv?.value || '';
+      const nome    = (form.querySelector<HTMLInputElement>('[name="Nome"]')?.value    || '').trim();
+      const whatsV  = (form.querySelector<HTMLInputElement>('[name="WhatsApp"]')?.value || '').trim();
+      const emailV  = (form.querySelector<HTMLInputElement>('[name="E-mail"]')?.value   || '').trim();
+      const empresa = (form.querySelector<HTMLInputElement>('[name="Empresa"]')?.value  || '').trim();
+      const tipoV   = tipo?.value || '';
+      const dataV   = data?.value || '';
+      const convV   = conv?.value || '';
 
       // Build WhatsApp message
-      const msg = `Olá! Me chamo ${nome}. Tenho interesse em ${tipoV} para ${convV} convidados na data ${dataV}.`;
+      const nomeCompleto = empresa ? `${nome} (${empresa})` : nome;
+      const emailParte   = emailV ? ` E-mail: ${emailV}.` : '';
+      const msg = `Olá! Me chamo ${nomeCompleto}. Tenho interesse em ${tipoV} para ${convV} convidados na data ${dataV}.${emailParte}`;
       const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
       // Build payload for n8n
-      const trackingRaw = sessionStorage.getItem('dmove_tracking');
-      const tracking    = trackingRaw ? JSON.parse(trackingRaw) : {};
       const now = new Date();
       const payload: Record<string, string> = {
-        'Nome':          nome,
-        'WhatsApp':      whatsV,
+        'Nome':           nome,
+        'WhatsApp':       whatsV,
+        ...(emailV   ? { 'E-mail':  emailV  } : {}),
+        ...(empresa  ? { 'Empresa': empresa } : {}),
         'Tipo de evento': tipoV,
         'Data do evento': dataV,
-        'Convidados':    convV,
-        'Fonte':         buildFonte(),
-        'Data':          now.toLocaleDateString('pt-BR'),
-        'Horário':       now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),
-        'URL da página': window.location.href,
+        'Convidados':     convV,
+        'Fonte':          buildFonte(),
+        'Data':           now.toLocaleDateString('pt-BR'),
+        'Horário':        now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),
+        'URL da página':  window.location.href,
         'Agente de usuário': navigator.userAgent,
         'form_id':   formId,
         'form_name': formId,
@@ -387,10 +444,10 @@ const cleanPhone = phone.replace(/\D/g, '');
 
       (window as any).dataLayer?.push({ event: 'form_submit', form_id: formId, ...payload });
 
-      // Show success, then open WhatsApp
+      // Mostra sucesso; abre WhatsApp apenas se número configurado
       step2.classList.add('wap-step-hidden');
       success.classList.remove('wap-step-hidden');
-      setTimeout(() => { window.open(waUrl, '_blank'); }, 800);
+      if (phone) setTimeout(() => { window.open(waUrl, '_blank'); }, 800);
     });
   }
 

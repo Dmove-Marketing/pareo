@@ -14,44 +14,31 @@
 
   // Gastronomia carousel — loop infinito
   const car=document.getElementById('carousel');
+  // duplica os slides para criar a ilusão de continuidade
   const originals=Array.from(car.children);
   originals.forEach(s=>car.appendChild(s.cloneNode(true)));
   originals.forEach(s=>car.insertBefore(s.cloneNode(true),car.firstChild));
 
-  const half=()=>car.scrollWidth/3;
+  const half=()=>car.scrollWidth/3; // 1 bloco original entre as cópias
+  // posiciona no bloco do meio ao carregar
   const recenter=()=>{car.scrollLeft=half();};
   window.addEventListener('load',recenter);
   recenter();
 
   const step=()=>Math.min(car.clientWidth*.8,600);
-
-  // jump instantâneo ANTES do scroll suave para não duplicar frame
-  const scrollNext=()=>{
+  const loopGuard=()=>{
     const block=half();
-    if(car.scrollLeft+step()>=block*2) car.scrollLeft-=block;
-    car.scrollBy({left:step(),behavior:'smooth'});
+    if(car.scrollLeft<=block*0.05){car.scrollLeft+=block;}
+    else if(car.scrollLeft>=block*1.95){car.scrollLeft-=block;}
   };
-  const scrollPrev=()=>{
-    const block=half();
-    if(car.scrollLeft-step()<block) car.scrollLeft+=block;
-    car.scrollBy({left:-step(),behavior:'smooth'});
-  };
+  car.addEventListener('scroll',()=>{window.requestAnimationFrame(loopGuard);});
 
-  // fallback para arrasto manual
-  let dragTimer;
-  car.addEventListener('scroll',()=>{
-    clearTimeout(dragTimer);
-    dragTimer=setTimeout(()=>{
-      const block=half();
-      if(car.scrollLeft<block) car.scrollLeft+=block;
-      else if(car.scrollLeft>=block*2) car.scrollLeft-=block;
-    },80);
-  });
+  document.getElementById('next').addEventListener('click',()=>car.scrollBy({left:step(),behavior:'smooth'}));
+  document.getElementById('prev').addEventListener('click',()=>car.scrollBy({left:-step(),behavior:'smooth'}));
 
-  document.getElementById('next').addEventListener('click',scrollNext);
-  document.getElementById('prev').addEventListener('click',scrollPrev);
-
-  let auto=setInterval(scrollNext,4200);
+  // avanço automático contínuo
+  let auto=setInterval(()=>car.scrollBy({left:step(),behavior:'smooth'}),4200);
   const carWrap=car.closest('.carousel-wrap');
   carWrap.addEventListener('mouseenter',()=>clearInterval(auto));
-  carWrap.addEventListener('mouseleave',()=>{auto=setInterval(scrollNext,4200);});
+  carWrap.addEventListener('mouseleave',()=>{auto=setInterval(()=>car.scrollBy({left:step(),behavior:'smooth'}),4200);});
+

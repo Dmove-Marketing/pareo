@@ -5,7 +5,7 @@
   "environment": "development",
   "tracking": {
     "gtm_id": "",
-    "enabled": false
+    "enabled": true
   },
   "forms": {
     "lead-form": {
