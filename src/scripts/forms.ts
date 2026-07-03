@@ -1,10 +1,8 @@
-function buildFonte(tracking: Record<string, string>): string {
-  if (tracking.utm_source) {
-    let f = tracking.utm_source;
-    if (tracking.utm_medium) f += ` / ${tracking.utm_medium}`;
-    return f;
-  }
-  return tracking.landing_page || window.location.pathname;
+function buildFonte(): string {
+  const slug = window.location.pathname.replace(/^\//, '') || 'bio';
+  const base = `Landing page/${slug}`;
+  const qs   = window.location.search;
+  return qs ? `${base}${qs}` : base;
 }
 
 function validateForm(form: HTMLFormElement): boolean {
@@ -93,7 +91,7 @@ export function initForms() {
 
       const payload: Record<string, string> = {
         ...data,
-        'Fonte': buildFonte(tracking),
+        'Fonte': buildFonte(),
         'Data': dateFmt,
         'Horário': timeFmt,
         'URL da página': window.location.href,
