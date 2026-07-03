@@ -201,13 +201,11 @@ const cleanPhone = phone.replace(/\D/g, '');
 
   flatpickr.localize(Portuguese);
 
-  function buildFonte(tracking: Record<string, string>): string {
-    if (tracking.utm_source) {
-      let f = tracking.utm_source;
-      if (tracking.utm_medium) f += ` / ${tracking.utm_medium}`;
-      return f;
-    }
-    return tracking.landing_page || window.location.pathname;
+  function buildFonte(): string {
+    const slug = window.location.pathname.replace(/^\//, '') || 'bio';
+    const base = `Landing page/${slug}`;
+    const qs   = window.location.search;
+    return qs ? `${base}${qs}` : base;
   }
 
   function applyPhoneMask(input: HTMLInputElement) {
@@ -369,7 +367,7 @@ const cleanPhone = phone.replace(/\D/g, '');
         'Tipo de evento': tipoV,
         'Data do evento': dataV,
         'Convidados':    convV,
-        'Fonte':         buildFonte(tracking),
+        'Fonte':         buildFonte(),
         'Data':          now.toLocaleDateString('pt-BR'),
         'Horário':       now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),
         'URL da página': window.location.href,

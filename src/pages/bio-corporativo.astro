@@ -84,12 +84,12 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
       submitText="Solicitar orçamento"
       honeypot
       fields={[
-        { name: 'nome',     type: 'text',  label: 'Nome completo', placeholder: 'Seu nome', required: true, full: true },
+        { name: 'Nome',     type: 'text',  label: 'Nome completo', placeholder: 'Seu nome', required: true, full: true },
         { type: 'row', fields: [
-          { name: 'telefone', id: 'whatsapp', type: 'tel',   label: 'WhatsApp', placeholder: '(00) 00000-0000', required: true },
-          { name: 'email',                    type: 'email', label: 'E-mail',   placeholder: 'seu@email.com',   required: true }
+          { name: 'WhatsApp', type: 'tel',   label: 'WhatsApp', placeholder: '(00) 00000-0000', required: true },
+          { name: 'E-mail',   type: 'email', label: 'E-mail',   placeholder: 'seu@email.com',   required: true }
         ]},
-        { name: 'tipo', type: 'select', label: 'Tipo de evento', required: true, full: true, options: [
+        { name: 'Tipo de evento', type: 'select', label: 'Tipo de evento', required: true, full: true, options: [
           { value: '',                              label: 'Tipo de evento'                        },
           { value: 'Evento corporativo',            label: 'Evento corporativo'                    },
           { value: 'Confraternização corporativa',  label: 'Confraternização corporativa'          },
@@ -101,10 +101,10 @@ const SITE_URL  = 'https://restaurantepareo.com.br/';
           { value: 'Outros',                        label: 'Outros'                                }
         ]},
         { type: 'row', fields: [
-          { name: 'data',       type: 'date',   label: 'Data do evento',   placeholder: 'dd/mm/aaaa', required: true },
-          { name: 'convidados', type: 'number', label: 'Nº de convidados', placeholder: 'Ex: 80',     required: true }
+          { name: 'Data do evento', type: 'date',   label: 'Data do evento',   placeholder: 'dd/mm/aaaa', required: true },
+          { name: 'Convidados',     type: 'number', label: 'Nº de convidados', placeholder: 'Ex: 80',     required: true }
         ]},
-        { name: 'mensagem', type: 'textarea', label: 'Mensagem', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
+        { name: 'Mensagem', type: 'textarea', label: 'Mensagem', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
       ]}
     />
   </section>
