@@ -13,11 +13,10 @@ import '../styles/casamentos.css';
   whatsappFormId="whats-casamentos"
   whatsappShowEmpresa={false}
   whatsappEventOptions={[
-    { value: 'Casamento civil',          label: 'Casamento civil'          },
-    { value: 'Cerimônia religiosa',      label: 'Cerimônia religiosa'      },
-    { value: 'Cerimônia + Recepção',     label: 'Cerimônia + Recepção'     },
-    { value: 'Recepção / Festa',         label: 'Recepção / Festa'         },
-    { value: 'Outro',                    label: 'Outro'                    },
+    { value: 'Bodas',                   label: 'Bodas'                   },
+    { value: 'Casamento',               label: 'Casamento'               },
+    { value: 'Confraternização social', label: 'Confraternização social' },
+    { value: 'Outros',                  label: 'Outros'                  },
   ]}
 >
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -230,12 +229,11 @@ import '../styles/casamentos.css';
           { name: 'Data do evento',     type: 'date',   placeholder: 'Data do evento (dd/mm/aaaa)', required: true  },
           { name: 'Número de pessoas',  type: 'number', placeholder: 'Número de pessoas',           required: true  },
           { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, full: true, options: [
-            { value: '',                      label: 'Tipo de evento'       },
-            { value: 'Casamento civil',       label: 'Casamento civil'      },
-            { value: 'Cerimônia religiosa',   label: 'Cerimônia religiosa'  },
-            { value: 'Cerimônia + Recepção',  label: 'Cerimônia + Recepção' },
-            { value: 'Recepção / Festa',      label: 'Recepção / Festa'     },
-            { value: 'Outro',                 label: 'Outro'                },
+            { value: '',                        label: 'Tipo de evento',        disabled: true, selected: true },
+            { value: 'Bodas',                   label: 'Bodas'                  },
+            { value: 'Casamento',               label: 'Casamento'              },
+            { value: 'Confraternização social', label: 'Confraternização social' },
+            { value: 'Outros',                  label: 'Outros'                 },
           ] },
           { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
         ]}
