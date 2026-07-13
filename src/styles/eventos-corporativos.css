@@ -121,9 +121,7 @@
   .espaco-text p{margin-top:1.5rem;max-width:42ch}
   .espaco-imgs{display:grid;gap:1.6rem}
   .espaco-imgs figure{overflow:hidden;border:1px solid var(--line-soft);box-shadow:var(--shadow-card)}
-  .espaco-imgs figure:first-child{margin-right:clamp(0px,4vw,3.5rem)}
-  .espaco-imgs figure:last-child{margin-left:clamp(0px,4vw,3.5rem);margin-top:-1.2rem}
-  .espaco-imgs img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform 1.2s var(--ease)}
+  .espaco-imgs img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s var(--ease)}
   .espaco-imgs figure:hover img{transform:scale(1.05)}
 
   /* ---------- AMBIENTES ---------- */
@@ -143,6 +141,19 @@
   .amb-list li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
   .amb-cap{margin-top:auto;padding-top:.4rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);font-variant-numeric:tabular-nums}
   .amb-cap b{color:var(--gold);font-weight:500}
+
+  /* ---------- CLIENTES ---------- */
+  .clientes{background:var(--bg-2);overflow:hidden}
+  .clientes-marquee{
+    width:100%;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  }
+  .clientes-track{display:flex;align-items:center;width:max-content;animation:clientes-scroll 34s linear infinite}
+  .clientes-marquee:hover .clientes-track{animation-play-state:paused}
+  .clientes-logo{flex:0 0 auto;width:150px;height:150px;margin:0 .5rem;padding:1.6rem;display:flex;align-items:center;justify-content:center;background:var(--cream);border-radius:12px;box-shadow:var(--shadow-card)}
+  .clientes-logo img{width:100%;height:100%;object-fit:contain}
+  @keyframes clientes-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- GASTRONOMIA ---------- */
   .gastro{background:var(--bg)}
@@ -272,8 +283,6 @@
     .feat + .feat{border-left:none}
     .feat{border-top:1px solid var(--line-soft)}
     .feat:first-child{border-top:none}
-    .espaco-imgs figure:first-child{margin-right:0}
-    .espaco-imgs figure:last-child{margin-left:0;margin-top:0}
     .gal-grid{
       grid-template-columns:repeat(2,1fr);
       grid-auto-rows:clamp(150px,26vw,210px);
@@ -289,7 +298,8 @@
     .ev-form-grid{grid-template-columns:1fr}
     .ev-form-group.full{grid-column:1}
     .gal-grid{grid-auto-rows:clamp(130px,40vw,200px)}
-    .track figure{flex:0 0 78%}
+    .track figure{flex:0 0 100%}
+    .clientes-logo{width:118px;height:118px;padding:1.2rem}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition-duration:.01ms!important}
