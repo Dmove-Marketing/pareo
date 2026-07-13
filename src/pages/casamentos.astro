@@ -1,0 +1,267 @@
+---
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+import '../styles/casamentos.css';
+---
+
+<Base
+  title="Páreo · Casamentos no Jockey Club do Rio de Janeiro"
+  description="Dentro do Jockey Club, o Páreo recebe seu grande dia com elegância e exclusividade. Três ambientes distintos para celebrar o casamento que você sempre desejou."
+  ogImage="hero.webp"
+  whatsappFormId="whats-casamentos"
+  whatsappShowEmpresa={false}
+  whatsappEventOptions={[
+    { value: 'Casamento civil',          label: 'Casamento civil'          },
+    { value: 'Cerimônia religiosa',      label: 'Cerimônia religiosa'      },
+    { value: 'Cerimônia + Recepção',     label: 'Cerimônia + Recepção'     },
+    { value: 'Recepção / Festa',         label: 'Recepção / Festa'         },
+    { value: 'Outro',                    label: 'Outro'                    },
+  ]}
+>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#top" class="logo" aria-label="Páreo — página inicial"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/logo.webp" alt="Páreo" priority /></a>
+</header>
+
+<main id="conteudo">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Decoracao_Classica_Amamos_criar_cenarios_de_cerimonias_Projetar_o_altar_a_decoraÃ§Ã£o_(1).webp" alt="Decoração clássica para casamento no Páreo" priority /></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Casamentos</span>
+    <h1 class="serif">Celebre o seu casamento no endereço<br class="d-br"> mais prestigiado do Rio de Janeiro</h1>
+    <p>Dentro do <b>Jockey Club</b>, o Páreo recebe seu grande dia com elegância e exclusividade.</p>
+    <a href="#contato" class="btn btn-gold">Comece a planejar <span class="arrow">→</span></a>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><div class="line"></div></div>
+</section>
+
+<!-- O CENÁRIO -->
+<section class="espaco section-pad">
+  <div class="wrap espaco-grid">
+    <div class="espaco-text reveal">
+      <span class="eyebrow">O Espaço</span>
+      <h2 class="serif">O cenário perfeito para<br>o dia mais importante da sua vida</h2>
+      <p>Poucos lugares no Rio carregam o prestígio do Jockey Club. Tradição centenária e a sofisticação da Zona Sul compõem um cenário raro, reconhecido pela cidade inteira. É nesse endereço que o Páreo recebe o seu casamento.</p>
+      <p>E porque cada união é única, você encontra aqui três cenários distintos, todos conduzidos com o mesmo rigor e a mesma elegância. Do salão que impõe presença ao céu aberto que emociona.</p>
+    </div>
+    <div class="espaco-imgs reveal d1">
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/JPC_8686-scaled.webp" alt="Cenário do Páreo para casamento" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENTES -->
+<section class="ambientes section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Ambientes</span>
+      <h2 class="serif">Três cenários, uma só assinatura</h2>
+      <p class="lead">Cada casal guarda um ideal de celebração. Por isso, o Páreo oferece três ambientes distintos para cada momento da noite.</p>
+    </div>
+    <div class="amb-grid">
+      <article class="amb-card reveal">
+        <div class="media"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-13_at_10.50.32.webp" alt="Restaurante Páreo Lounge preparado para casamento íntimo" /></div>
+        <div class="amb-body">
+          <span class="num">Ambiente 01</span>
+          <h3 class="serif">Restaurante Páreo Lounge</h3>
+          <p class="desc">Para comemorações intimistas e cheias de afeto, o nosso restaurante abre suas portas.</p>
+          <ul class="amb-list">
+            <li>Parrilla de 7 metros e forno à lenha à vista</li>
+            <li>Adega com sommelier</li>
+            <li>Alta gastronomia assinada pela casa</li>
+            <li>Lounge aconchegante</li>
+          </ul>
+          <span class="amb-cap">Até <b>50</b> convidados</span>
+        </div>
+      </article>
+      <article class="amb-card reveal d1">
+        <div class="media"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-07_at_15.43.52_(1).webp" alt="Varanda Garden da Páreo com teto retrátil para casamento ao ar livre" /></div>
+        <div class="amb-body">
+          <span class="num">Ambiente 02</span>
+          <h3 class="serif">Varanda Garden</h3>
+          <p class="desc">Um refúgio para dizer "para sempre" sob o horizonte carioca.</p>
+          <ul class="amb-list">
+            <li>Teto retrátil</li>
+            <li>Vista privilegiada</li>
+            <li>Clima ao ar livre</li>
+            <li>Espaço reservado e sofisticado</li>
+          </ul>
+          <span class="amb-cap">Até <b>150</b> convidados</span>
+        </div>
+      </article>
+      <article class="amb-card reveal d2">
+        <div class="media"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/hero.webp" alt="Salão Nobre da Páreo iluminado para grande casamento" /></div>
+        <div class="amb-body">
+          <span class="num">Ambiente 03</span>
+          <h3 class="serif">Salão Nobre</h3>
+          <p class="desc">Com 640m², é o palco ideal para grandes casamentos e festas memoráveis.</p>
+          <ul class="amb-list">
+            <li>Pé-direito alto e arquitetura clássica</li>
+            <li>Ampla capacidade para receber os seus convidados</li>
+            <li>Layout versátil para cerimônia e recepção</li>
+            <li>Climatização em todo o salão</li>
+          </ul>
+          <span class="amb-cap">Até <b>400</b> convidados</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMIA -->
+<section class="gastro section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Gastronomia</span>
+      <h2 class="serif">Gastronomia internacional com identidade brasileira</h2>
+      <p class="lead">Sob o comando do chef Marcones Deus, a cozinha do Páreo transita pelo mundo sem jamais perder a identidade brasileira.</p>
+    </div>
+    <div class="carousel reveal" aria-label="Galeria de gastronomia">
+      <div class="track-mask">
+        <div class="track" id="track">
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/gastro2.webp" alt="Prato da gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/gastro6.webp" alt="Detalhe de prato Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/gastro-6.webp" alt="Composição gastronômica Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.13.28_(1)_(1).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.13.26_(3).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.20.33_(3).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.20.32_(1)_(2).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.15.12_(1).webp" alt="Gastronomia Páreo" /></figure>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button id="prev" aria-label="Anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button id="next" aria-label="Próximo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <p class="gastro-foot reveal">Da parrilla às criações autorais, o cardápio é desenhado sob medida, para encantar você e cada convidado que compartilha esse momento.</p>
+  </div>
+</section>
+
+<!-- ESTRUTURA -->
+<section class="estrutura section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Estrutura</span>
+      <h2 class="serif">Nos bastidores,<br>uma operação impecável</h2>
+      <p class="lead">Os detalhes são exatamente os que tornam a sua noite impecável.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <span class="fnum">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2.5l7 3v5.5c0 4.4-3 8.2-7 10-4-1.8-7-5.6-7-10V5.5l7-3z"/><path d="M9.2 12l1.9 1.9 3.8-3.8"/></svg></div>
+        <h3 class="serif">Segurança especializada</h3>
+      </div>
+      <div class="feat reveal d1">
+        <span class="fnum">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3 class="serif">Localização privilegiada</h3>
+      </div>
+      <div class="feat reveal d2">
+        <span class="fnum">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M15 14.5c2.6.2 4.5 2 4.5 4.5"/></svg></div>
+        <h3 class="serif">Equipe dedicada</h3>
+      </div>
+      <div class="feat reveal d3">
+        <span class="fnum">04</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 8.5a4 4 0 010 7"/><path d="M19.5 6a7 7 0 010 12"/></svg></div>
+        <h3 class="serif">Som e iluminação</h3>
+      </div>
+      <div class="feat reveal d3">
+        <span class="fnum">05</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 8h12a2.5 2.5 0 100-5"/><path d="M3 12h16a2.5 2.5 0 110 5"/><path d="M3 16h8a2 2 0 110 4"/></svg></div>
+        <h3 class="serif">Climatizadores</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Galeria</span>
+      <h2 class="serif">Um convite visual</h2>
+      <p class="lead">Conheça o Páreo antes mesmo da sua visita.</p>
+    </div>
+    <div class="gal-grid reveal" id="gallery">
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_10.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_11.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_12.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_9.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_8.webp" alt="Casamento no Páreo" /></figure>
+      <figure class="pos-left"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_4.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_6.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_5.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_7.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_3.webp" alt="Casamento no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_2.webp" alt="Casamento no Páreo" /></figure>
+      <figure class="mob-pos-up"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/galeria_casamento_1.webp" alt="Casamento no Páreo" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato section-pad" id="contato">
+  <div class="wrap contato-grid">
+    <div class="contato-text reveal">
+      <span class="eyebrow">Contato</span>
+      <h2 class="serif">Comece a desenhar o casamento que você sempre desejou</h2>
+      <p class="lead">Preencha o formulário e a nossa equipe entrará em contato com você.</p>
+    </div>
+    <div class="form-card reveal d1">
+      <LeadForm
+        formId="lead-form"
+        prefix="cas"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+        fields={[
+          { name: 'Nome',     type: 'text',  placeholder: 'Nome',     required: true,  full: true },
+          { name: 'Telefone', type: 'tel',   placeholder: 'Telefone', required: true  },
+          { name: 'E-mail',   type: 'email', placeholder: 'E-mail',   required: true  },
+          { name: 'Data do evento',     type: 'date',   placeholder: 'Data do evento (dd/mm/aaaa)', required: true  },
+          { name: 'Número de pessoas',  type: 'number', placeholder: 'Número de pessoas',           required: true  },
+          { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, full: true, options: [
+            { value: '',                      label: 'Tipo de evento'       },
+            { value: 'Casamento civil',       label: 'Casamento civil'      },
+            { value: 'Cerimônia religiosa',   label: 'Cerimônia religiosa'  },
+            { value: 'Cerimônia + Recepção',  label: 'Cerimônia + Recepção' },
+            { value: 'Recepção / Festa',      label: 'Recepção / Festa'     },
+            { value: 'Outro',                 label: 'Outro'                },
+          ] },
+          { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
+        ]}
+      />
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/logo.webp" alt="Páreo" /></div>
+  <p class="copy">Copyright © 2026 Páreo · Todos os direitos reservados</p>
+  <div class="by">Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener noreferrer"><Img src="https://media.dmove.com.br/clients/dmove/photos/logo-dmove.webp" alt="Dmove" /></a></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <Img src="/images/placeholder.jpg" alt="" />
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próximo">›</button>
+</div>
+
+</Base>
+<script>
+  import '../scripts/casamentos.js';
+</script>
