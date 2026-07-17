@@ -265,7 +265,7 @@
   /* ---------- INFRAESTRUTURA ---------- */
   .infra{background:var(--bg)}
   .infra-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:20px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px;
   }
   .infra-item{
     text-align:center;padding:44px 24px;
