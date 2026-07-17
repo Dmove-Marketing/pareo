@@ -37,7 +37,7 @@
   body{
     background:var(--bg);
     color:var(--cream);
-    font-family:'Jost',system-ui,sans-serif;
+    font-family:'Gotham',system-ui,sans-serif;
     font-weight:300;
     font-size:1rem;
     line-height:1.7;
@@ -49,12 +49,12 @@
   ::selection{background:var(--gold);color:#13100c}
 
   /* ---------- typographic helpers ---------- */
-  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+  .serif{font-family:'Giorgio',Georgia,serif}
   .eyebrow{
     font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
     color:var(--gold);font-weight:400;display:inline-block;margin-bottom:1.4rem;
   }
-  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.06;letter-spacing:-.012em;text-wrap:balance}
+  h1,h2,h3{font-family:'Giorgio',Georgia,serif;font-weight:400;line-height:1.06;letter-spacing:-.03em;word-spacing:-.06em;text-wrap:balance}
   h2{font-size:clamp(1.375rem,3vw,2.5rem);color:var(--cream)}
   p{color:var(--cream-dim);font-weight:300;text-wrap:pretty}
   .lead{font-size:1.05rem;color:var(--muted);max-width:46ch}
@@ -75,7 +75,7 @@
   /* ---------- buttons ---------- */
   .btn{
     display:inline-flex;align-items:center;gap:.85em;
-    font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
+    font-family:'Gotham',sans-serif;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
     font-weight:400;padding:1.15em 2.4em;cursor:pointer;border:none;
     transition:all .45s var(--ease);position:relative;
   }
@@ -108,7 +108,7 @@
   .hero h1{font-size:clamp(1.6rem,3.4vw,2.9rem);color:#fff;margin:.2rem 0 1.6rem;text-shadow:0 2px 40px rgba(0,0,0,.4)}
   .hero h1 .d-br{display:inline}
   @media(max-width:640px){.hero h1 .d-br{display:none}}
-  .hero p{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--cream-dim);max-width:34em;margin:0 auto 2.6rem}
+  .hero p{font-size:clamp(1rem,1.6vw,1.2rem);color:#fff;max-width:34em;margin:0 auto 2.6rem}
   .hero p b{color:var(--gold);font-weight:400}
   .scroll-cue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.7rem;color:var(--muted)}
   .scroll-cue span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase}
@@ -170,7 +170,7 @@
   }
   .carousel-nav button:hover{border-color:var(--gold);color:var(--gold)}
   .carousel-nav button:disabled{opacity:.3;cursor:not-allowed}
-  .gastro-foot{text-align:center;max-width:62ch;margin:3rem auto 0;font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.5rem);font-style:italic;color:var(--cream-dim);line-height:1.5}
+  .gastro-foot{text-align:center;max-width:62ch;margin:3rem auto 0;font-family:'Giorgio',serif;font-size:clamp(1.2rem,2vw,1.5rem);color:var(--cream-dim);line-height:1.5}
 
   /* ---------- ESTRUTURA ---------- */
   .estrutura{background:var(--bg-2)}
@@ -232,7 +232,7 @@
   .ev-label{position:absolute;left:-9999px}
   .ev-input,.ev-select,.ev-textarea{
     width:100%;background:var(--bg);border:1px solid var(--line-soft);color:var(--cream);
-    font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;padding:1em 1.1em;
+    font-family:'Gotham',sans-serif;font-weight:300;font-size:.95rem;padding:1em 1.1em;
     transition:border-color .4s var(--ease);
   }
   .ev-input::placeholder,.ev-textarea::placeholder{color:var(--muted-2)}
@@ -241,7 +241,7 @@
   .ev-textarea{resize:vertical;min-height:120px}
   .ev-submit{
     display:inline-flex;align-items:center;justify-content:center;gap:.85em;width:100%;
-    font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
+    font-family:'Gotham',sans-serif;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
     font-weight:400;padding:1.15em 2.4em;cursor:pointer;border:none;margin-top:.4rem;
     background:var(--gold);color:#15110b;transition:all .45s var(--ease);
   }
@@ -252,7 +252,7 @@
   .ev-success-state.active{display:block}
   .ev-success-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;border:1px solid var(--gold);border-radius:50%;color:var(--gold)}
   .ev-success-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.5}
-  .ev-success-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream);margin-bottom:.6rem}
+  .ev-success-title{font-family:'Giorgio',serif;font-size:1.4rem;color:var(--cream);margin-bottom:.6rem}
   .ev-success-text{color:var(--muted);font-size:.95rem}
   .ev-form-msg{color:#ef4444;font-size:.85rem;margin-top:.5rem;display:none}
   .ev-field-error{font-size:.78rem;color:#ef4444;display:none;margin-top:.25rem}

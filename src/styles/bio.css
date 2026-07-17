@@ -15,7 +15,7 @@
 body {
   background: var(--bg);
   color: var(--cream);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Gotham', sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
@@ -249,7 +249,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--line);
   color: var(--cream);
   font-size: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Gotham', sans-serif;
   font-weight: 300;
   outline: none;
   transition: border-color 0.25s;

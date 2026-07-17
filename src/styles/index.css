@@ -19,7 +19,7 @@
   body{
     background:var(--bg);
     color:var(--cream);
-    font-family:'Inter',sans-serif;
+    font-family:'Gotham',sans-serif;
     font-weight:300;
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
@@ -30,13 +30,14 @@
 
   /* ---------- TYPOGRAPHY HELPERS ---------- */
   .display{
-    font-family:'Cormorant Garamond',serif;
+    font-family:'Giorgio',serif;
     font-weight:400;
     line-height:1.08;
-    letter-spacing:.005em;
+    letter-spacing:-.03em;
+    word-spacing:-.06em;
   }
   .eyebrow{
-    font-family:'Jost',sans-serif;
+    font-family:'Gotham',sans-serif;
     font-weight:400;
     font-size:.72rem;
     letter-spacing:.42em;
@@ -71,7 +72,7 @@
   a.ph:hover{border-color:var(--gold)}
   .ph::after{
     content:attr(data-label);
-    font-family:'Jost',sans-serif;
+    font-family:'Gotham',sans-serif;
     font-size:.66rem;
     letter-spacing:.32em;
     text-transform:uppercase;
@@ -105,7 +106,7 @@
   }
   header.bar.scrolled .brand img{height:34px}
   .bar .mini-cta{
-    font-family:'Jost',sans-serif;
+    font-family:'Gotham',sans-serif;
     font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
     color:var(--cream);
     border:1px solid var(--line);
@@ -117,7 +118,7 @@
   /* ---------- BUTTONS ---------- */
   .btn{
     display:inline-flex;align-items:center;gap:.9em;
-    font-family:'Jost',sans-serif;
+    font-family:'Gotham',sans-serif;
     font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;
     color:var(--bg);
     background:var(--gold);
@@ -145,7 +146,7 @@
   .hero .bg::after{display:none}
   .bg-folder{
     position:absolute;right:26px;bottom:22px;z-index:3;
-    font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.3em;
+    font-family:'Gotham',sans-serif;font-size:.6rem;letter-spacing:.3em;
     text-transform:uppercase;color:var(--muted-2);text-decoration:none;
     transition:color .3s;
   }
@@ -164,10 +165,10 @@
     max-width:none;
     text-wrap:balance;
   }
-  .hero h1 .accent{color:var(--gold-soft);font-style:italic}
+  .hero h1 .accent{color:var(--gold-soft)}
   .hero p.lead{
     font-size:clamp(1.05rem,1.7vw,1.3rem);
-    color:var(--muted);
+    color:#fff;
     max-width:560px;
     font-weight:300;
     margin:0 auto 2.8rem;
@@ -211,11 +212,11 @@
   .amb-photo{height:300px}
   .amb-body{padding:38px 36px 40px}
   .amb-body .tag{
-    font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.28em;
+    font-family:'Gotham',sans-serif;font-size:.66rem;letter-spacing:.28em;
     text-transform:uppercase;color:var(--gold);
   }
   .amb-body h3{
-    font-family:'Cormorant Garamond',serif;
+    font-family:'Giorgio',serif;
     font-size:2.1rem;font-weight:500;color:var(--cream);
     margin:.5rem 0 1rem;
   }
@@ -228,10 +229,10 @@
   .capacity{
     border-top:1px solid var(--line);
     padding-top:1.4rem;
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-size:1.35rem;color:var(--gold-soft);
+    font-family:'Giorgio',serif;
+    font-size:1.35rem;color:var(--gold-soft);
   }
-  .capacity span{font-style:normal;font-size:.95rem;color:var(--muted);font-family:'Inter',sans-serif}
+  .capacity span{font-style:normal;font-size:.95rem;color:var(--muted);font-family:'Gotham',sans-serif}
 
   /* ---------- GASTRONOMIA ---------- */
   .gastro{background:var(--bg-2)}
@@ -256,7 +257,7 @@
   .cbtn:hover{border-color:var(--gold);color:var(--gold-soft);background:rgba(190,158,94,.06)}
   .cbtn svg{width:18px;height:18px}
   .gastro .closing{
-    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-family:'Giorgio',serif;
     font-size:clamp(1.3rem,2.2vw,1.7rem);color:var(--cream);
     max-width:680px;margin:14px auto 0;line-height:1.4;text-align:center;
   }
@@ -278,7 +279,7 @@
   }
   .infra-ico svg{width:100%;height:100%;stroke:var(--gold);fill:none;stroke-width:1.25}
   .infra-item h4{
-    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-family:'Giorgio',serif;font-weight:500;
     font-size:1.4rem;color:var(--cream);
   }
 
@@ -300,7 +301,7 @@
   .contato .bg::after{
     content:"FOTO DE FUNDO";
     position:absolute;left:26px;bottom:20px;
-    font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.3em;color:var(--muted-2);
+    font-family:'Gotham',sans-serif;font-size:.6rem;letter-spacing:.3em;color:var(--muted-2);
   }
   .contato .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,8,8,.85),rgba(8,8,8,.92))}
   .contato .wrap{position:relative;z-index:2}
@@ -321,7 +322,7 @@
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   label{
     display:block;
-    font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;
+    font-family:'Gotham',sans-serif;font-size:.68rem;letter-spacing:.2em;
     text-transform:uppercase;color:var(--gold);margin-bottom:.6em;
   }
   input,select,textarea{
@@ -330,7 +331,7 @@
     border:1px solid var(--line);
     border-radius:2px;
     color:var(--cream);
-    font-family:'Inter',sans-serif;font-size:.98rem;font-weight:300;
+    font-family:'Gotham',sans-serif;font-size:.98rem;font-weight:300;
     padding:.95em 1.1em;
     transition:border-color .3s,background .3s;
   }
