@@ -94,7 +94,8 @@
   .hero h1 .d-br{display:inline}
   @media(max-width:640px){.hero h1 .d-br{display:none}}
   .hero p{font-size:clamp(1rem,1.6vw,1.2rem);color:#fff;max-width:34em;margin:0 auto 2.6rem}
-  .hero p b{color:var(--gold);font-weight:400}
+  .hero p b{color:#fff;font-weight:400}
+  .hero .eyebrow{color:#fff}
   .scroll-cue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.7rem;color:var(--muted)}
   .scroll-cue span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase}
   .scroll-cue .line{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:cuePulse 2.4s ease-in-out infinite}
@@ -120,7 +121,7 @@
   .amb-body h3{font-size:1.7rem;margin:.7rem 0 1rem}
   .amb-body .desc{color:var(--muted);font-size:.98rem;max-width:42ch;min-height:3em;margin-inline:auto}
   .amb-list{list-style:none;margin:1.7rem 0;border-top:1px solid var(--line-soft)}
-  .amb-list li{padding:.85rem 0;border-bottom:1px solid var(--line-soft);font-size:.92rem;color:var(--cream-dim);display:flex;align-items:center;justify-content:center;gap:.9rem}
+  .amb-list li{padding:.85rem 0;border-bottom:1px solid var(--line-soft);font-size:.92rem;line-height:1.2;color:var(--cream-dim);display:flex;align-items:center;justify-content:center;gap:.9rem}
   .amb-list li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
   .amb-cap{margin-top:auto;padding-top:.4rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);font-variant-numeric:tabular-nums}
   .amb-cap b{color:var(--gold);font-weight:500}

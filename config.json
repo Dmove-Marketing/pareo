@@ -2,9 +2,9 @@
   "project_name": "pareo",
   "project_slug": "pareo",
   "client": "Restaurante Páreo",
-  "environment": "development",
+  "environment": "production",
   "tracking": {
-    "gtm_id": "",
+    "gtm_id": "GTM-5XC4SMHR",
     "enabled": true
   },
   "forms": {
@@ -25,7 +25,7 @@
     }
   },
   "whatsapp_popup": {
-    "phone": "",
+    "phone": "5521967677479",
     "form_id": "whats-popup",
     "show_after_ms": 3000
   },

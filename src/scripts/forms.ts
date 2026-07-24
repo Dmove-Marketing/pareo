@@ -51,9 +51,11 @@ export function initForms() {
       }
     });
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit');
+    const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
+    const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');
 
+    const handleSubmit = async () => {
       const hp = form.querySelector<HTMLInputElement>('[name="website"]');
       if (hp && hp.value) return;
 
@@ -61,9 +63,6 @@ export function initForms() {
       if (!validateForm(form)) return;
 
       submitting = true;
-      const submitBtn  = form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]');
-      const btnText    = submitBtn?.querySelector<HTMLElement>('.btn-text');
-      const btnLoading = submitBtn?.querySelector<HTMLElement>('.btn-loading');
       const msgEl = gridId
         ? document.getElementById(gridId)?.querySelector('[id$="FormMsg"]') as HTMLElement | null
         : form.querySelector('.form-error') as HTMLElement | null;
@@ -143,6 +142,15 @@ export function initForms() {
           }
         }
       }
+    };
+
+    if (submitBtn) submitBtn.addEventListener('click', handleSubmit);
+
+    form.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === 'TEXTAREA' || tag === 'BUTTON') return;
+      handleSubmit();
     });
   });
 }

@@ -137,7 +137,7 @@
   .amb-body h3{font-size:1.7rem;margin:.7rem 0 1rem}
   .amb-body .desc{color:var(--muted);font-size:.98rem;max-width:42ch;min-height:3em;margin-inline:auto}
   .amb-list{list-style:none;margin:1.7rem 0;border-top:1px solid var(--line-soft)}
-  .amb-list li{padding:.85rem 0;border-bottom:1px solid var(--line-soft);font-size:.92rem;color:var(--cream-dim);display:flex;align-items:center;justify-content:center;gap:.9rem}
+  .amb-list li{padding:.85rem 0;border-bottom:1px solid var(--line-soft);font-size:.92rem;line-height:1.2;color:var(--cream-dim);display:flex;align-items:center;justify-content:center;gap:.9rem}
   .amb-list li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
   .amb-cap{margin-top:auto;padding-top:.4rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);font-variant-numeric:tabular-nums}
   .amb-cap b{color:var(--gold);font-weight:500}

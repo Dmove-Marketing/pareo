@@ -23,13 +23,22 @@
   sel.addEventListener('change',()=>sel.classList.toggle('filled',!!sel.value));
 
   // form submit (demo)
-  document.getElementById('contatoForm').addEventListener('submit',(e)=>{
-    e.preventDefault();
-    if(!e.target.reportValidity())return;
-    document.getElementById('formSuccess').style.display='block';
-    const b=e.target.querySelector('button[type=submit]');
-    b.textContent='Enviado ✓';b.disabled=true;
-  });
+  const contatoForm=document.getElementById('contatoForm');
+  if(contatoForm){
+    const contatoBtn=contatoForm.querySelector('button[type=button]');
+    const handleContato=()=>{
+      if(!contatoForm.reportValidity())return;
+      document.getElementById('formSuccess').style.display='block';
+      if(contatoBtn){contatoBtn.textContent='Enviado ✓';contatoBtn.disabled=true;}
+    };
+    if(contatoBtn)contatoBtn.addEventListener('click',handleContato);
+    contatoForm.addEventListener('keydown',(e)=>{
+      if(e.key!=='Enter')return;
+      const tag=e.target.tagName;
+      if(tag==='TEXTAREA'||tag==='BUTTON')return;
+      handleContato();
+    });
+  }
 
   // lightbox
   const figs=[...document.querySelectorAll('#gallery figure img')];
