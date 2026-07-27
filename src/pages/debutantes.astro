@@ -1,0 +1,305 @@
+---
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+import '../styles/debutantes.css';
+---
+
+<Base
+  title="Páreo · Festa de Debutante no Jockey Club do Rio de Janeiro"
+  description="Dentro do Jockey Club, o Páreo recebe sua festa de debutante com brilho e exclusividade. Três ambientes distintos para celebrar seus 15 anos na Zona Sul do Rio."
+  ogImage="hero.webp"
+  whatsappFormId="whats-debutantes"
+  whatsappShowEmpresa={false}
+  whatsappEventOptions={[
+    { value: 'Festa de Debutante', label: 'Festa de Debutante' },
+    { value: 'Outros',             label: 'Outros'             },
+  ]}
+>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#top" class="logo" aria-label="Páreo — página inicial"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/logo.webp" alt="Páreo" priority /></a>
+</header>
+
+<main id="conteudo">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/_6M15778.webp" alt="Festa de debutante no Páreo" priority /></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Debutantes</span>
+    <h1 class="serif">Comemore seus 15 anos no cenário<br class="d-br"> mais desejado da Zona Sul.</h1>
+    <p>Dentro do <b>Jockey Club</b>, o Páreo recebe sua festa de debutante com brilho e exclusividade.</p>
+    <a href="#contato" class="btn btn-gold">Solicite um contato <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- O ESPAÇO -->
+<section class="espaco section-pad">
+  <div class="wrap espaco-grid">
+    <div class="espaco-text reveal">
+      <span class="eyebrow">O Espaço</span>
+      <h2 class="serif">Para debutantes que não abrem mão do extraordinário</h2>
+      <p>Poucos lugares no Rio reúnem a tradição centenária do Jockey Club Brasileiro e a sofisticação da Zona Sul em um só endereço. É nesse cenário raro que o Páreo recebe a sua festa de 15 anos.</p>
+      <p>Para cada momento da noite, você encontra ambientes que se transformam com você: o Páreo é uma tela em branco, pronta para receber a festa com a sua identidade.</p>
+    </div>
+    <div class="espaco-imgs reveal d1">
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/sobre-aerea.webp" alt="Cenário do Páreo para festa de debutante" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENTES -->
+<section class="ambientes section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Ambientes</span>
+      <h2 class="serif">Três cenários para uma celebração única</h2>
+      <p class="lead">Cada debutante imagina uma festa diferente. Por isso, o Páreo reúne três espaços com o mesmo padrão de sofisticação.</p>
+    </div>
+    <div class="amb-grid">
+      <article class="amb-card reveal">
+        <div class="media"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-13_at_11.35.13_(1).webp" alt="Restaurante Páreo Lounge preparado para festa de debutante" /></div>
+        <div class="amb-body">
+          <span class="num">Ambiente 01</span>
+          <h3 class="serif">Restaurante Páreo Lounge</h3>
+          <p class="desc">Para recepções intimistas e cheias de charme, o nosso restaurante recebe sua celebração com estilo.</p>
+          <ul class="amb-list">
+            <li>Varanda com teto retrátil</li>
+            <li>Alta gastronomia assinada pela casa</li>
+            <li>Lounge climatizado e aconchegante</li>
+          </ul>
+          <span class="amb-cap">Até <b>150</b> convidados</span>
+        </div>
+      </article>
+      <article class="amb-card reveal d1">
+        <div class="media"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-22_at_16.49.53_(1).webp" alt="Varanda Garden do Páreo para celebração íntima de debutante" /></div>
+        <div class="amb-body">
+          <span class="num">Ambiente 02</span>
+          <h3 class="serif">Varanda Garden</h3>
+          <p class="desc">Reúna pessoas especiais em um espaço reservado, perfeito para celebrações mais intimistas e cheia de significado.</p>
+          <ul class="amb-list">
+            <li>Ambiente climatizado</li>
+            <li>Iluminação intimista</li>
+            <li>Espaço reservado e sofisticado</li>
+          </ul>
+          <span class="amb-cap">Até <b>50</b> convidados</span>
+        </div>
+      </article>
+      <article class="amb-card reveal d2">
+        <div class="media"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG_2919.webp" alt="Salão Nobre do Páreo iluminado para grande festa de debutante" /></div>
+        <div class="amb-body">
+          <span class="num">Ambiente 03</span>
+          <h3 class="serif">Salão Nobre</h3>
+          <p class="desc">Com 587m², é o palco ideal para grandes festas de debutante e celebrações grandiosas.</p>
+          <ul class="amb-list">
+            <li>Pé-direito alto e arquitetura moderna</li>
+            <li>Layout versátil para diferentes formatos</li>
+            <li>Climatização em todo o salão</li>
+          </ul>
+          <span class="amb-cap">Até <b>500</b> convidados</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Carrossel extra de ambientes -->
+    <div class="amb-carousel carousel reveal">
+      <div class="track-mask">
+        <div class="track" id="track2">
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Decoracao-3.webp" alt="Decoração para festa de debutante no Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Decoracao-7.webp" alt="Decoração para festa de debutante no Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20260617-WA0010.webp" alt="Ambiente para festa de debutante no Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20170318-WA0068.webp" alt="Ambiente para festa de debutante no Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20260617-WA0061.webp" alt="Ambiente para festa de debutante no Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20260617-WA0059.webp" alt="Ambiente para festa de debutante no Páreo" /></figure>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button id="prev2" aria-label="Anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button id="next2" aria-label="Próximo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERIMONIAL E VALSA -->
+<section class="momento section-pad">
+  <div class="wrap momento-grid">
+    <div class="momento-text reveal">
+      <span class="eyebrow">Cerimonial e Valsa</span>
+      <h2 class="serif">O momento em que seu sonho se torna realidade</h2>
+      <p>Sinta seu coração acelerar quando as luzes se voltarem para você no grande momento da valsa.</p>
+    </div>
+    <div class="momento-img momento-slideshow reveal d1" id="valsa-slide">
+      <div class="slide active"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/_6M15888.webp" alt="Cerimonial de debutante no Páreo" /></div>
+      <div class="slide"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-169_(1).webp" alt="Valsa de debutante no Páreo" /></div>
+      <div class="slide"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-327.webp" alt="Momento da valsa no Páreo" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- FESTA E PISTA DE DANÇA -->
+<section class="momento section-pad">
+  <div class="wrap momento-grid reverse">
+    <div class="momento-text reveal">
+      <span class="eyebrow">Festa</span>
+      <h2 class="serif">Dance até o fim da noite</h2>
+      <p>Transforme a pista de dança em um verdadeiro palco e crie o espetáculo que só a sua festa de 15 anos pode ter.</p>
+    </div>
+    <div class="momento-img momento-slideshow reveal d1" id="festa-slide">
+      <div class="slide active"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-336_(1).webp" alt="Festa de debutante no Páreo" /></div>
+      <div class="slide"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/0F3A8132.webp" alt="Pista de dança na festa de debutante no Páreo" /></div>
+      <div class="slide"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-600.webp" alt="Festa de debutante no Páreo" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMIA -->
+<section class="gastro section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Gastronomia</span>
+      <h2 class="serif">Gastronomia internacional com alma brasileira</h2>
+      <p class="lead">No comando da cozinha, o chef Marcones Deus assina a alta gastronomia do Páreo, combinando ingredientes clássicos com muita brasilidade.</p>
+    </div>
+    <div class="carousel reveal" aria-label="Galeria de gastronomia">
+      <div class="track-mask">
+        <div class="track" id="track">
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/gastro6.webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/gastro2.webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.13.28_(1)_(1).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.20.32_(1)_(2).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.13.26_(2)_(2).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.15.12_(1).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.20.28_(2)_(1).webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/0F3A8029.webp" alt="Gastronomia Páreo" /></figure>
+          <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/WhatsApp_Image_2026-07-06_at_12.13.24_(2).webp" alt="Gastronomia Páreo" /></figure>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button id="prev" aria-label="Anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button id="next" aria-label="Próximo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <p class="gastro-foot reveal">Do menu autoral aos clássicos reinventados, cada prato é pensado para surpreender você e seus convidados.</p>
+  </div>
+</section>
+
+<!-- INFRAESTRUTURA -->
+<section class="estrutura section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Infraestrutura</span>
+      <h2 class="serif">Uma operação impecável para curtir sem preocupações</h2>
+      <p class="lead">No Páreo, cada detalhe é pensado para que a experiência seja excepcional.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <span class="fnum">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2.5l7 3v5.5c0 4.4-3 8.2-7 10-4-1.8-7-5.6-7-10V5.5l7-3z"/><path d="M9.2 12l1.9 1.9 3.8-3.8"/></svg></div>
+        <h3 class="serif">Segurança especializada</h3>
+      </div>
+      <div class="feat reveal d1">
+        <span class="fnum">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3 class="serif">Localização privilegiada</h3>
+      </div>
+      <div class="feat reveal d2">
+        <span class="fnum">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M15 14.5c2.6.2 4.5 2 4.5 4.5"/></svg></div>
+        <h3 class="serif">Equipe dedicada</h3>
+      </div>
+      <div class="feat reveal d3">
+        <span class="fnum">04</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 8h12a2.5 2.5 0 100-5"/><path d="M3 12h16a2.5 2.5 0 110 5"/><path d="M3 16h8a2 2 0 110 4"/></svg></div>
+        <h3 class="serif">Climatizadores</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria section-pad">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Galeria</span>
+      <h2 class="serif">Pelos olhos de quem viveu</h2>
+      <p class="lead">Veja registros de debutantes que confiaram no Páreo e se inspire para criar a sua própria festa de 15 anos.</p>
+    </div>
+    <div class="gal-grid reveal" id="gallery">
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Retratos-258.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Retratos-107.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure class="pos-top"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20260617-WA0012.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-94.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG_3905.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure class="pos-left"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-204_(1).webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG-20260617-WA0011.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-121.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-635.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/Festa-25.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/0F3A7422.webp" alt="Festa de debutante no Páreo" /></figure>
+      <figure class="mob-pos-up"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/_6M15773.webp" alt="Festa de debutante no Páreo" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato section-pad" id="contato">
+  <div class="contato-bg"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/IMG_2895_(1).webp" alt="" /></div>
+  <div class="wrap contato-grid">
+    <div class="contato-text reveal">
+      <span class="eyebrow">Contato</span>
+      <h2 class="serif">Vamos planejar sua festa de 15 anos?</h2>
+      <p class="lead">Preencha o formulário para receber uma proposta personalizada.</p>
+    </div>
+    <div class="form-card reveal d1">
+      <LeadForm
+        formId="lead-form"
+        prefix="deb"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+        fields={[
+          { name: 'Nome',     type: 'text',  placeholder: 'Nome',     required: true,  full: true },
+          { name: 'Telefone', type: 'tel',   placeholder: 'Telefone', required: true  },
+          { name: 'E-mail',   type: 'email', placeholder: 'E-mail',   required: true  },
+          { name: 'Data do evento',     type: 'date',   placeholder: 'Data do evento (dd/mm/aaaa)', required: true  },
+          { name: 'Número de pessoas',  type: 'number', placeholder: 'Número de pessoas',           required: true  },
+          { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, full: true, options: [
+            { value: '',                   label: 'Tipo de evento',       disabled: true, selected: true },
+            { value: 'Festa de Debutante', label: 'Festa de Debutante'   },
+            { value: 'Outros',             label: 'Outros'                },
+          ] },
+          { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
+        ]}
+      />
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo"><Img src="https://media.dmove.com.br/clients/restaurantepareo/photos/logo.webp" alt="Páreo" /></div>
+  <p class="copy">Copyright © 2026 Páreo · Todos os direitos reservados</p>
+  <div class="by">Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener noreferrer"><Img src="https://media.dmove.com.br/clients/dmove/photos/logo-dmove.webp" alt="Dmove" /></a></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <Img src="/images/placeholder.jpg" alt="" />
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próximo">›</button>
+</div>
+
+</Base>
+<script>
+  import '../scripts/debutantes.js';
+</script>
