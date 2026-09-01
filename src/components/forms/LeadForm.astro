@@ -273,7 +273,11 @@ function renderField(f: Field, cxInputClass: string, cxSelectClass: string, cxAr
 
   function applyPhoneMask(input: HTMLInputElement) {
     input.addEventListener('input', () => {
-      let v = input.value.replace(/\D/g, '').slice(0, 11);
+      let v = input.value.replace(/\D/g, '');
+      // Lead digitou o código do país (55) antes do DDD: o total passa de 11 dígitos.
+      // Remove o "55" para não truncar o DDD real e gerar um número incompleto.
+      if (v.length > 11 && v.startsWith('55')) v = v.slice(2);
+      v = v.slice(0, 11);
       if (v.length > 10) {
         v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
       } else if (v.length > 6) {

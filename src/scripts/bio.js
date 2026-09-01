@@ -7,6 +7,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 function applyPhoneMask(input) {
   input.addEventListener('input', (e) => {
     let v = e.target.value.replace(/\D/g, '');
+    // Remove o código do país (55) quando digitado antes do DDD (total > 11 dígitos).
+    if (v.length > 11 && v.startsWith('55')) v = v.slice(2);
     if (v.length > 11) v = v.slice(0, 11);
     if (v.length > 6) {
       v = '(' + v.slice(0, 2) + ') ' + v.slice(2, 7) + '-' + v.slice(7);

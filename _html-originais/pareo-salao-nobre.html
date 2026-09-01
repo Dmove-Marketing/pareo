@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Páreo · Salão Nobre no Jockey Club do Rio de Janeiro</title>
+<meta name="description" content="Salão Nobre do Páreo: 587m² dentro do Jockey Club, para até 500 convidados. O espaço ideal para casamentos, debutantes, aniversários e eventos corporativos no Rio de Janeiro.">
+<link rel="icon" type="image/png" href="imagens/favicon.png">
+<link rel="apple-touch-icon" href="imagens/favicon.png">
+
+<style>
+  /* ============ 5. Cores e fontes como variáveis ============ */
+  :root {
+    --cor-fundo: #13100c;
+    --cor-fundo-alt: #1a1611;
+    --cor-fundo-card: #1e1812;
+    --cor-texto: #ece3d2;
+    --cor-texto-muted: #b3a68e;
+    --cor-borda: rgba(194, 163, 107, 0.25);
+    --cor-dourado: #c2a36b;
+    --cor-dourado-claro: #d4b97f;
+    --fonte-titulo: "Giorgio", Georgia, "Times New Roman", serif;
+    --fonte-titulo-thin: "Giorgio Thin", Georgia, serif;
+    --fonte-corpo: "Gotham", "Helvetica Neue", Arial, sans-serif;
+    --container: 1180px;
+  }
+
+  @font-face {
+    font-family: "Giorgio";
+    src: url("fontes/Giorgio.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Giorgio Thin";
+    src: url("fontes/Giorgio-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Gotham";
+    src: url("fontes/Gotham-Book.otf") format("opentype");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Gotham";
+    src: url("fontes/Gotham-BookItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Gotham";
+    src: url("fontes/Gotham-Thin.otf") format("opentype");
+    font-weight: 100;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Gotham";
+    src: url("fontes/Gotham-ThinItalic.otf") format("opentype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-corpo);
+    font-weight: 400;
+    line-height: 1.28;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--cor-dourado); text-decoration: none; }
+  a:hover { color: var(--cor-dourado-claro); }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .skip-link { position: absolute; left: -9999px; }
+  .skip-link:focus {
+    left: 16px; top: 16px;
+    background: var(--cor-dourado); color: var(--cor-fundo);
+    padding: 8px 16px; z-index: 999;
+  }
+
+  .eyebrow {
+    font-family: var(--fonte-corpo);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.72rem;
+    color: var(--cor-dourado);
+    font-weight: 400;
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    line-height: 1.04;
+    color: var(--cor-texto);
+  }
+
+  h1 { font-size: clamp(1.89rem, 3.96vw, 3.06rem); letter-spacing: -0.01em; }
+  section.hero h1 { font-size: clamp(1.71rem, 3.6vw, 2.7rem); }
+  h2 { font-size: clamp(1.71rem, 3.6vw, 2.7rem); }
+  h3 { font-size: clamp(1.04rem, 1.62vw, 1.26rem); }
+
+  p { color: var(--cor-texto-muted); font-size: 1.02rem; }
+
+  .divider { width: 56px; height: 1px; background: var(--cor-dourado); margin: 22px 0; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fonte-corpo);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    padding: 16px 30px;
+    border: 1px solid var(--cor-dourado);
+    color: var(--cor-dourado);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--cor-dourado); color: var(--cor-fundo); }
+  .btn-solid { background: var(--cor-dourado); color: var(--cor-fundo); }
+  .btn-solid:hover { background: var(--cor-dourado-claro); color: var(--cor-fundo); }
+
+  /* ---------- header ---------- */
+  header.site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 0;
+    background: rgba(15,12,9,0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cor-borda);
+  }
+  header.site-header .container { display: flex; align-items: center; justify-content: space-between; }
+  header.site-header img.logo { height: 42px; width: auto; }
+  header.site-header .btn { padding: 12px 22px; font-size: 0.7rem; }
+
+  /* ---------- hero ---------- */
+  section.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: #000;
+    padding: 130px 0 70px;
+  }
+  section.hero .bg { position: absolute; inset: 0; z-index: 0; }
+  section.hero .bg img { width: 100%; height: 100%; object-fit: cover; }
+  section.hero .bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, rgba(13,11,8,0.88) 0%, rgba(13,11,8,0.62) 45%, rgba(13,11,8,0.4) 100%);
+  }
+  section.hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 40px;
+    align-items: start;
+  }
+  section.hero .hero-copy { padding-top: 30px; max-width: 820px; }
+  section.hero p.lead { color: var(--cor-texto); font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 20px 0 36px; }
+
+  /* ---------- form panel (compartilhado entre hero e contato) ---------- */
+  .form-panel {
+    background: rgba(19,16,12,0.74);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    padding: 32px;
+    backdrop-filter: blur(6px);
+  }
+  .form-panel h3 { margin-bottom: 18px; color: var(--cor-texto); }
+  .campo { margin-bottom: 18px; }
+  .campo label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cor-texto-muted);
+    margin-bottom: 7px;
+  }
+  .campo input, .campo select, .campo textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto);
+    font-family: var(--fonte-corpo);
+    font-size: 0.94rem;
+    padding: 12px 14px;
+    border-radius: 3px;
+  }
+  .campo input:focus, .campo select:focus, .campo textarea:focus { outline: none; border-color: var(--cor-dourado); }
+  .campo textarea { resize: vertical; min-height: 80px; }
+  .campo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-panel .btn { width: 100%; justify-content: center; margin-top: 6px; }
+  .form-nota { font-size: 0.74rem; color: var(--cor-texto-muted); margin-top: 12px; text-align: center; }
+
+  /* ---------- generic section spacing ---------- */
+  section { padding: 110px 0; position: relative; }
+  section.alt { background: var(--cor-fundo-alt); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .two-col.reverse .col-text { order: 2; }
+  .two-col.reverse .col-media { order: 1; }
+  .col-media img { border-radius: 4px; }
+
+  .section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  #estrutura .section-head { max-width: 740px; }
+  .section-head p { margin-top: 16px; }
+
+  /* ---------- tipos de evento ---------- */
+  .grid-eventos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .card-evento { display: flex; flex-direction: column; }
+  .card-evento .thumb {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    margin-bottom: 18px;
+  }
+  .card-evento .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .card-evento:hover .thumb img { transform: scale(1.06); }
+  .card-evento h3 { margin-bottom: 8px; }
+  .card-evento p { font-size: 0.92rem; }
+
+  /* ---------- gastronomia (carrossel infinito) ---------- */
+  .carrossel-gastronomia {
+    margin-top: 56px;
+    overflow: hidden;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  }
+  .carrossel-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: max-content;
+    animation: carrossel-scroll 46s linear infinite;
+  }
+  .carrossel-gastronomia:hover .carrossel-track { animation-play-state: paused; }
+  .carrossel-track img {
+    height: 320px;
+    width: auto;
+    flex-shrink: 0;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  @keyframes carrossel-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- estrutura (icones) ---------- */
+  .grid-estrutura {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .item-estrutura { text-align: center; }
+  .item-estrutura .icone {
+    width: 46px; height: 46px;
+    margin: 0 auto 16px;
+    color: var(--cor-dourado);
+  }
+  .item-estrutura .icone svg { width: 100%; height: 100%; }
+  .item-estrutura span {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem;
+    color: var(--cor-texto);
+  }
+
+  /* ---------- parallax (somente imagem) ---------- */
+  section.parallax {
+    min-height: 46vh;
+    background: #000;
+    padding: 0;
+  }
+  section.parallax img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  section.parallax .frame { height: 46vh; overflow: hidden; }
+
+  /* ---------- galeria ---------- */
+  .galeria-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 12px; }
+  .galeria-grid button { border: 0; padding: 0; background: none; cursor: zoom-in; overflow: hidden; border-radius: 3px; }
+  .galeria-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; }
+  .galeria-grid button:hover img { transform: scale(1.05); filter: brightness(1.05); }
+  .galeria-grid .tall { grid-row: span 1; }
+
+  #lightbox {
+    position: fixed; inset: 0;
+    background: rgba(10,8,6,0.94);
+    z-index: 999; display: none;
+    align-items: center; justify-content: center;
+    padding: 40px;
+  }
+  #lightbox.is-open { display: flex; }
+  #lightbox img { max-width: 90vw; max-height: 86vh; border-radius: 4px; }
+  #lightbox button.close {
+    position: absolute; top: 28px; right: 32px;
+    background: none; border: 1px solid var(--cor-dourado); color: var(--cor-dourado);
+    width: 40px; height: 40px; border-radius: 50%; font-size: 1.1rem; cursor: pointer;
+  }
+
+  /* ---------- contato ---------- */
+  section.contato { position: relative; background: #000; padding: 0; }
+  section.contato .bg { position: absolute; inset: 0; }
+  section.contato .bg img { width: 100%; height: 100%; object-fit: cover; }
+  section.contato .bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, rgba(13,11,8,0.95) 0%, rgba(13,11,8,0.86) 45%, rgba(13,11,8,0.55) 100%);
+  }
+  section.contato .container {
+    position: relative; z-index: 1;
+    padding: 120px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  section.contato .intro { max-width: 420px; padding-top: 20px; }
+  section.contato .intro p { margin-top: 16px; }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--cor-fundo); border-top: 1px solid var(--cor-borda); padding: 32px 0; }
+  footer .container { text-align: center; }
+  footer p { font-size: 0.8rem; margin: 0; color: var(--cor-texto-muted); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    section.hero .container { grid-template-columns: 1fr; gap: 36px; }
+    section.hero .hero-copy { max-width: 100%; }
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
+    .two-col.reverse .col-text { order: 1; }
+    .two-col.reverse .col-media { order: 2; }
+    .grid-eventos { grid-template-columns: repeat(2, 1fr); }
+    .grid-estrutura { grid-template-columns: repeat(2, 1fr); }
+    .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+    .carrossel-track img { height: 220px; }
+    section.contato .container { grid-template-columns: 1fr; }
+    section { padding: 80px 0; }
+  }
+  @media (max-width: 560px) {
+    .campo-row { grid-template-columns: 1fr; }
+    header.site-header .btn span.txt { display: none; }
+    .grid-estrutura { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+    form.form-panel, .form-panel { padding: 22px; }
+    section.hero { padding-top: 100px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#sobre" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#hero" aria-label="Páreo">
+      <img class="logo" src="imagens/pareosalaonobre-logo.png" alt="Logotipo Páreo">
+    </a>
+    <a class="btn" href="#contato">Solicitar contato</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="bg">
+      <img src="imagens/pareosalaonobre-hero.png" alt="Lounge do Páreo decorado para evento, com poltronas azuis, mesas espelhadas e iluminação dourada">
+    </div>
+    <div class="container">
+      <div class="hero-copy">
+        <span class="eyebrow">Páreo · Salão Nobre</span>
+        <h1>O evento mais<br>importante da sua vida<br>pede o endereço mais<br>exclusivo do Rio</h1>
+        <p class="lead">Realize a sua celebração no Salão Nobre do Jockey Club, com a assinatura do Páreo.</p>
+        <a class="btn btn-solid" href="#form-hero">Comece a planejar</a>
+      </div>
+
+      <!-- ============ 7. Formulário padrão Dmove (sem JS de envio) ============ -->
+      <form class="form-panel" id="form-hero">
+        <div class="campo">
+          <label for="nome-hero">Nome</label>
+          <input type="text" id="nome-hero" name="nome" required>
+        </div>
+        <div class="campo-row">
+          <div class="campo">
+            <label for="telefone-hero">Telefone</label>
+            <input type="tel" id="telefone-hero" name="telefone" required>
+          </div>
+          <div class="campo">
+            <label for="email-hero">E-mail</label>
+            <input type="email" id="email-hero" name="email" required>
+          </div>
+        </div>
+        <div class="campo-row">
+          <div class="campo">
+            <label for="data_evento-hero">Data do evento</label>
+            <input type="date" id="data_evento-hero" name="data_evento" required>
+          </div>
+          <div class="campo">
+            <label for="convidados-hero">Número de pessoas</label>
+            <input type="number" id="convidados-hero" name="convidados" min="1" required>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="tipo_evento-hero">Tipo de evento</label>
+          <select id="tipo_evento-hero" name="tipo_evento" required>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="casamento">Casamento</option>
+            <option value="evento_corporativo">Evento corporativo</option>
+            <option value="debutante">Debutante</option>
+            <option value="aniversario">Aniversário</option>
+            <option value="formatura">Formatura</option>
+            <option value="confraternizacao">Confraternização / Fim de ano</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="detalhes_adicionais-hero">Detalhes adicionais</label>
+          <textarea id="detalhes_adicionais-hero" name="detalhes_adicionais"></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Enviar solicitação</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section id="sobre">
+    <div class="container">
+      <div class="two-col">
+        <div class="col-text">
+          <span class="eyebrow">O Espaço</span>
+          <h2>Há endereços<br>que dispensam<br>apresentação</h2>
+          <div class="divider"></div>
+          <p>O Jockey Club Brasileiro é um deles. Entre a tradição centenária e a sofisticação da Zona Sul, existe um espaço reservado aos momentos que merecem ser lembrados para sempre.</p>
+          <p>É aqui, nesse cenário raro, que o Páreo assina as celebrações mais desejadas do Rio de Janeiro. Um endereço que a cidade inteira reconhece, aberto a poucos.</p>
+        </div>
+        <div class="col-media">
+          <img src="imagens/pareosalaonobre-sobre.jpg" alt="Vista aérea do Jockey Club Brasileiro, no Rio de Janeiro, onde está localizado o Páreo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIPOS DE EVENTO ============ -->
+  <section class="alt" id="tipos-de-evento">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Tipos de evento</span>
+        <h2>Feito para as datas<br>que entram para a história</h2>
+        <p>Cada grande momento encontra no Salão Nobre a grandiosidade que a ocasião pede.</p>
+      </div>
+      <div class="grid-eventos">
+        <div class="card-evento">
+          <div class="thumb">
+            <img src="imagens/pareosalaonobre-tiposeventos-casamentos.jpg" alt="Cerimônia de casamento montada no Páreo, com lustres de cristal e arranjos florais brancos">
+          </div>
+          <h3>Casamentos</h3>
+          <p>A cerimônia e a festa dos seus sonhos, no endereço mais prestigiado do Rio.</p>
+        </div>
+        <div class="card-evento">
+          <div class="thumb">
+            <img src="imagens/pareosalaonobre-tiposeventos-corporativo.png" alt="Salão Nobre montado para convenção e evento corporativo">
+          </div>
+          <h3>Eventos corporativos</h3>
+          <p>Convenções, premiações e celebrações que elevam o nome da sua empresa.</p>
+        </div>
+        <div class="card-evento">
+          <div class="thumb">
+            <img src="imagens/pareosalaonobre-tiposeventos-debutantes.jpg" alt="Festa de debutante no Salão Nobre, com pista de dança e convidados em trajes de gala">
+          </div>
+          <h3>Debutantes</h3>
+          <p>Uma festa de 15 anos inesquecível, sob o brilho de um salão imponente.</p>
+        </div>
+        <div class="card-evento">
+          <div class="thumb">
+            <img src="imagens/pareosalaonobre-tiposeventos-aniversarios.jpg" alt="Salão decorado para festa de aniversário, com balões coloridos e iluminação temática">
+          </div>
+          <h3>Aniversários</h3>
+          <p>Datas especiais que merecem um lugar tão memorável quanto elas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GASTRONOMIA ============ -->
+  <section id="gastronomia">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Gastronomia</span>
+        <h2>Uma cozinha que<br>permanece na memória</h2>
+        <p>Sob o comando do chef Marcones Deus, a alta gastronomia do Páreo transita pelo mundo sem perder a identidade brasileira.</p>
+      </div>
+    </div>
+    <div class="carrossel-gastronomia">
+      <div class="carrossel-track">
+        <img src="imagens/pareosalaonobre-gastronomia-1.jpg" alt="Mini porções em panelinhas de cobre com arroz, feijão branco e cubos crocantes">
+        <img src="imagens/pareosalaonobre-gastronomia-2.jpeg" alt="Prato do chef Marcones Deus servido no Páreo">
+        <img src="imagens/pareosalaonobre-gastronomia-3.jpeg" alt="Atum selado com purê e cebola assada, prato assinado pelo chef Marcones Deus">
+        <img src="imagens/pareosalaonobre-gastronomia-4.jpeg" alt="Prato assinado da gastronomia do Páreo">
+        <img src="imagens/pareosalaonobre-gastronomia-5.jpeg" alt="Prato da cozinha do Páreo com cortes nobres">
+        <img src="imagens/pareosalaonobre-gastronomia-6.jpeg" alt="Prato assinado pelo chef Marcones Deus no Páreo">
+        <img src="imagens/pareosalaonobre-gastronomia-7.jpeg" alt="Prato da alta gastronomia do Páreo">
+        <img src="imagens/pareosalaonobre-gastronomia-1.jpg" alt="" aria-hidden="true">
+        <img src="imagens/pareosalaonobre-gastronomia-2.jpeg" alt="" aria-hidden="true">
+        <img src="imagens/pareosalaonobre-gastronomia-3.jpeg" alt="" aria-hidden="true">
+        <img src="imagens/pareosalaonobre-gastronomia-4.jpeg" alt="" aria-hidden="true">
+        <img src="imagens/pareosalaonobre-gastronomia-5.jpeg" alt="" aria-hidden="true">
+        <img src="imagens/pareosalaonobre-gastronomia-6.jpeg" alt="" aria-hidden="true">
+        <img src="imagens/pareosalaonobre-gastronomia-7.jpeg" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ESTRUTURA ============ -->
+  <section class="alt" id="estrutura">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Estrutura</span>
+        <h2>Grandiosidade em cada detalhe</h2>
+        <p>Com 587m² de puro requinte, o Salão Nobre foi desenhado para receber grandes celebrações sem abrir mão da elegância.</p>
+      </div>
+      <div class="grid-estrutura">
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9.5-3.5-1-7-4.5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+          <span>Segurança especializada</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9.5" r="2.3"/><path d="M15 20c.3-2.5 2.2-4.3 4.5-4.3S23.7 17.5 24 20" transform="translate(-2 0)"/></svg></span>
+          <span>Até 500 convidados</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span>
+          <span>Localização privilegiada</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l2.47 5.13 5.53.82-4 4.02.94 5.63L12 16.02l-4.94 2.78.94-5.63-4-4.02 5.53-.82L12 3.2z"/></svg></span>
+          <span>Equipe dedicada</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 8.2L6.3 11H3.6a.6.6 0 00-.6.6v4.8c0 .33.27.6.6.6h2.7l4.2 2.8V8.2z"/><path d="M15.8 8.6a5 5 0 010 6.8"/><path d="M18.3 6.3a8.5 8.5 0 010 11.4"/></svg></span>
+          <span>Som e iluminação</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 6l16 12M4 18L20 6M2 12h20"/></svg></span>
+          <span>Climatizadores</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARALLAX (somente imagem) ============ -->
+  <section class="parallax" id="experiencia">
+    <div class="frame">
+      <img src="imagens/pareosalaonobre-paralax.jpeg" alt="Varanda do Páreo iluminada à noite, com lounge decorado para evento">
+    </div>
+  </section>
+
+  <!-- ============ GALERIA ============ -->
+  <section id="galeria">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Galeria</span>
+        <h2>Contemple registros<br>reais do espaço</h2>
+        <p>Deixe as imagens revelarem o cenário do seu próximo grande evento.</p>
+      </div>
+      <div class="galeria-grid">
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-1.jpg"><img src="imagens/pareosalaonobre-galeria-1.jpg" alt="Festa temática no Salão Nobre com decoração colorida e balões"></button>
+        <button type="button" class="tall" data-full="imagens/pareosalaonobre-galeria-2.jpg"><img src="imagens/pareosalaonobre-galeria-2.jpg" alt="Evento decorado no Salão Nobre do Páreo"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-3.jpg"><img src="imagens/pareosalaonobre-galeria-3.jpg" alt="Detalhe da decoração de evento no Salão Nobre"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-4.png"><img src="imagens/pareosalaonobre-galeria-4.png" alt="Mesa decorada em evento realizado no Salão Nobre"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-5.png"><img src="imagens/pareosalaonobre-galeria-5.png" alt="Ambiente do Salão Nobre montado para celebração"></button>
+        <button type="button" class="tall" data-full="imagens/pareosalaonobre-galeria-6.jpg"><img src="imagens/pareosalaonobre-galeria-6.jpg" alt="Convidados em evento no Salão Nobre do Páreo"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-7.jpeg"><img src="imagens/pareosalaonobre-galeria-7.jpeg" alt="Decoração de festa no Salão Nobre"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-8.jpg"><img src="imagens/pareosalaonobre-galeria-8.jpg" alt="Detalhe de arranjo floral em evento no Salão Nobre"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-9.jpg"><img src="imagens/pareosalaonobre-galeria-9.jpg" alt="Cenografia temática de inverno em festa de debutante no Salão Nobre"></button>
+        <button type="button" class="tall" data-full="imagens/pareosalaonobre-galeria-10.png"><img src="imagens/pareosalaonobre-galeria-10.png" alt="Salão Nobre decorado para grande evento"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-11.jpg"><img src="imagens/pareosalaonobre-galeria-11.jpg" alt="Pista de dança montada no Salão Nobre"></button>
+        <button type="button" data-full="imagens/pareosalaonobre-galeria-12.jpg"><img src="imagens/pareosalaonobre-galeria-12.jpg" alt="Detalhe de iluminação em evento no Salão Nobre"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="contato" id="contato">
+    <div class="bg">
+      <img src="imagens/pareosalaonobre-contato.jpg" alt="Ambiente do Páreo preparado para receber convidados">
+    </div>
+    <div class="container">
+      <div class="intro">
+        <span class="eyebrow">Contato</span>
+        <h2>Quero planejar<br>um evento incrível!</h2>
+        <p>Preencha o formulário para receber nosso contato.</p>
+      </div>
+
+      <!-- ============ 7. Formulário padrão Dmove (sem JS de envio) ============ -->
+      <form class="form-panel" id="form-contato">
+        <div class="campo">
+          <label for="nome-contato">Nome</label>
+          <input type="text" id="nome-contato" name="nome" required>
+        </div>
+        <div class="campo-row">
+          <div class="campo">
+            <label for="telefone-contato">Telefone</label>
+            <input type="tel" id="telefone-contato" name="telefone" required>
+          </div>
+          <div class="campo">
+            <label for="email-contato">E-mail</label>
+            <input type="email" id="email-contato" name="email" required>
+          </div>
+        </div>
+        <div class="campo-row">
+          <div class="campo">
+            <label for="data_evento-contato">Data do evento</label>
+            <input type="date" id="data_evento-contato" name="data_evento" required>
+          </div>
+          <div class="campo">
+            <label for="convidados-contato">Número de pessoas</label>
+            <input type="number" id="convidados-contato" name="convidados" min="1" required>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="tipo_evento-contato">Tipo de evento</label>
+          <select id="tipo_evento-contato" name="tipo_evento" required>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value="casamento">Casamento</option>
+            <option value="evento_corporativo">Evento corporativo</option>
+            <option value="debutante">Debutante</option>
+            <option value="aniversario">Aniversário</option>
+            <option value="formatura">Formatura</option>
+            <option value="confraternizacao">Confraternização / Fim de ano</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="detalhes_adicionais-contato">Detalhes adicionais</label>
+          <textarea id="detalhes_adicionais-contato" name="detalhes_adicionais"></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Enviar solicitação</button>
+        <p class="form-nota">Ao enviar, você concorda com nossa política de privacidade.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Copyright © 2026 Páreo · Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<!-- Lightbox simples para a galeria (sem tracking, sem envio de formulário) -->
+<div id="lightbox">
+  <button type="button" class="close" aria-label="Fechar">✕</button>
+  <img src="" alt="">
+</div>
+<script>
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = lightbox.querySelector('img');
+    var closeBtn = lightbox.querySelector('.close');
+
+    document.querySelectorAll('.galeria-grid button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var full = btn.getAttribute('data-full');
+        var alt = btn.querySelector('img').getAttribute('alt');
+        lightboxImg.setAttribute('src', full);
+        lightboxImg.setAttribute('alt', alt);
+        lightbox.classList.add('is-open');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightboxImg.setAttribute('src', '');
+    }
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+  })();
+</script>
+
+</body>
+</html>
