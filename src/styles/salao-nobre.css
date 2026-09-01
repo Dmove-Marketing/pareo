@@ -68,7 +68,7 @@ section.hero h1 { font-size: clamp(1.71rem, 3.6vw, 2.7rem); }
 h2 { font-size: clamp(1.71rem, 3.6vw, 2.7rem); }
 h3 { font-size: clamp(1.04rem, 1.62vw, 1.26rem); }
 
-p { color: var(--cor-texto-muted); font-size: 1.02rem; }
+p { color: var(--cor-texto-muted); font-size: 1.02rem; line-height: 1.2; }
 
 .divider { width: 56px; height: 1px; background: var(--cor-dourado); margin: 22px 0; }
 
@@ -168,40 +168,40 @@ section.alt { background: var(--cor-fundo-alt); }
 .card-evento h3 { margin-bottom: 8px; }
 .card-evento p { font-size: 0.92rem; }
 
-/* ---------- gastronomia (carrossel padrão) ---------- */
-.carousel { position: relative; margin-top: 56px; }
-.track-mask { overflow: hidden; }
-.track { display: flex; gap: 20px; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-.track figure {
-  flex: 0 0 clamp(240px, 30%, 340px);
+/* ---------- gastronomia (carrossel infinito automático) ---------- */
+.carrossel-gastronomia {
+  margin-top: 56px;
   overflow: hidden;
-  aspect-ratio: 4/5;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.carrossel-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: carrossel-scroll 46s linear infinite;
+}
+.carrossel-gastronomia:hover .carrossel-track { animation-play-state: paused; }
+.carrossel-track figure {
+  flex: 0 0 clamp(240px, 28vw, 320px);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
   border-radius: 4px;
   border: 1px solid var(--cor-borda);
 }
-.track img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s ease; }
-.track figure:hover img { transform: scale(1.06); }
-.carousel-nav { display: flex; justify-content: center; gap: 14px; margin-top: 32px; }
-.carousel-nav button {
-  width: 52px; height: 52px;
-  border: 1px solid var(--cor-borda);
-  border-radius: 2px;
-  background: transparent;
-  color: var(--cor-texto);
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: border-color 0.3s ease, color 0.3s ease;
+.carrossel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s ease;
 }
-.carousel-nav button:hover { border-color: var(--cor-dourado); color: var(--cor-dourado); }
-.carousel-nav button:disabled { opacity: 0.3; cursor: not-allowed; }
-.gastro-foot {
-  text-align: center;
-  max-width: 62ch;
-  margin: 44px auto 0;
-  font-family: var(--fonte-titulo);
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
-  color: var(--cor-texto);
-  line-height: 1.5;
+.carrossel-track figure:hover img { transform: scale(1.06); }
+@keyframes carrossel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* ---------- estrutura (icones) ---------- */
@@ -386,7 +386,7 @@ footer.site-footer .by img { width: 90px; }
   .grid-eventos { grid-template-columns: repeat(2, 1fr); }
   .grid-estrutura { grid-template-columns: repeat(2, 1fr); }
   .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-  .track figure { flex: 0 0 clamp(220px, 70%, 300px); }
+  .carrossel-track figure { flex-basis: clamp(220px, 60vw, 280px); }
   section.hero .container { grid-template-columns: 1fr; gap: 36px; }
   section.contato .container { grid-template-columns: 1fr; }
   section { padding: 80px 0; }
@@ -403,7 +403,7 @@ br.br-m { display: none; }
 @media (max-width: 560px) {
   .sn-lf [class*="-form-grid"] { grid-template-columns: 1fr; }
   .sn-lf .full { grid-column: 1; }
-  .track figure { flex: 0 0 100%; }
+  .carrossel-track figure { flex-basis: 70vw; }
   header.site-header .container { justify-content: center; }
   header.site-header .btn { display: none; }
   .grid-estrutura { grid-template-columns: 1fr 1fr; gap: 32px 20px; }

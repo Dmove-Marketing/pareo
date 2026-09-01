@@ -165,18 +165,12 @@ const galeria = [
         <h2>Uma cozinha que<br>permanece na memória</h2>
         <p>Sob o comando do chef Marcones Deus, a alta gastronomia do Páreo<br class="br-d"> transita pelo mundo sem perder a identidade brasileira.</p>
       </div>
-      <div class="carousel" aria-label="Galeria de gastronomia">
-        <div class="track-mask">
-          <div class="track" id="track">
-            {gastronomia.map((g) => <figure><Img src={g.src} alt={g.alt} /></figure>)}
-          </div>
-        </div>
-        <div class="carousel-nav">
-          <button id="prev" aria-label="Anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
-          <button id="next" aria-label="Próximo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
+    </div>
+    <div class="carrossel-gastronomia" aria-label="Galeria de gastronomia">
+      <div class="carrossel-track">
+        {gastronomia.map((g) => <figure><Img src={g.src} alt={g.alt} /></figure>)}
+        {gastronomia.map((g) => <figure aria-hidden="true"><img src={g.src} alt="" loading="lazy" /></figure>)}
       </div>
-      <p class="gastro-foot">Do menu autoral aos clássicos reinventados, cada prato é pensado para surpreender você e seus convidados.</p>
     </div>
   </section>
 
