@@ -298,7 +298,10 @@ function renderField(f: Field, cxInputClass: string, cxSelectClass: string, cxAr
       flatpickr(el, {
         dateFormat: 'd/m/Y',
         minDate: 'today',
-        disableMobile: false,
+        // Usa sempre o calendário do flatpickr (inclusive mobile). Com o modo
+        // mobile nativo, o <input type="date"> ignora o placeholder e o campo
+        // aparece sem o rótulo "Data do evento".
+        disableMobile: true,
         allowInput: false,
       });
     });

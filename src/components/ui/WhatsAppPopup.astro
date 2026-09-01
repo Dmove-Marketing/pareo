@@ -366,7 +366,7 @@ const cleanPhone = phone.replace(/\D/g, '');
         datepickerInit = true;
         const dateInput = document.getElementById('wap-data-input') as HTMLInputElement;
         if (dateInput && !(dateInput as any)._flatpickr) {
-          flatpickr(dateInput, { dateFormat: 'd/m/Y', minDate: 'today', disableMobile: false });
+          flatpickr(dateInput, { dateFormat: 'd/m/Y', minDate: 'today', disableMobile: true });
         }
       }
     });
