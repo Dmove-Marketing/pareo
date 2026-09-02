@@ -105,7 +105,7 @@ header.site-header {
   border-bottom: 1px solid var(--cor-borda);
 }
 header.site-header .container { display: flex; align-items: center; justify-content: space-between; }
-header.site-header img.logo { height: 42px; width: auto; }
+header.site-header img.logo { height: 60px; width: auto; transform: scale(1.15); transform-origin: left center; }
 header.site-header .btn { padding: 12px 22px; font-size: 0.7rem; }
 
 /* ---------- hero ---------- */
