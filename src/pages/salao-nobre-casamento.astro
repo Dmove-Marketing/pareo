@@ -1,0 +1,278 @@
+---
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+import '../styles/salao-nobre-casamento.css';
+
+const IMG = 'https://media.dmove.com.br/clients/restaurantepareo/photos';
+
+const gastronomia = [
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-1.jpg`, alt: 'Mini porções em panelinhas de cobre com arroz, feijão branco e cubos crocantes' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-2.jpg`, alt: 'Prato do chef Marcones Deus servido no Páreo' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-3.jpg`, alt: 'Atum selado com purê e cebola assada, prato assinado pelo chef Marcones Deus' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-4.jpg`, alt: 'Prato assinado pelo chef Marcones Deus no Páreo' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-5.jpg`, alt: 'Prato da alta gastronomia do Páreo' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-6.jpg`, alt: 'Sobremesa assinada da gastronomia do Páreo' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-7.jpg`, alt: 'Detalhe de prato servido no Páreo' },
+  { src: `${IMG}/pareosalaonobre-casamento-gastronomia-8.jpg`, alt: 'Prato da cozinha do Páreo com cortes nobres' },
+];
+
+const galeria = [
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-1.jpg`, alt: 'Festa temática no Salão Nobre com decoração colorida e balões',       tall: false, desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-2.jpg`, alt: 'Evento decorado no Salão Nobre do Páreo',                               tall: true,  desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-3.jpg`, alt: 'Mesa decorada em evento realizado no Salão Nobre',                      tall: false, desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-4.png`, alt: 'Ambiente do Salão Nobre montado para celebração',                       tall: false, desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-5.jpg`, alt: 'Convidados em evento no Salão Nobre do Páreo',                          tall: true,  desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-6.png`, alt: 'Decoração de festa no Salão Nobre',                                     tall: false, desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-7.jpg`, alt: 'Detalhe de arranjo floral em evento no Salão Nobre',                    tall: false, desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-8.jpg`, alt: 'Cenografia temática em festa no Salão Nobre',                           tall: false, desktopOnly: false },
+  { src: `${IMG}/pareosalaonobre-casamento-galeria-9.jpg`, alt: 'Convidados celebrando no Salão Nobre',                                  tall: false, desktopOnly: true  },
+];
+
+const leadFields: any[] = [
+  { name: 'Nome',              type: 'text',     placeholder: 'Nome',              required: true,  full: true },
+  { name: 'Telefone',          type: 'tel',      placeholder: 'Telefone',          required: true,  mask: 'phone' },
+  { name: 'E-mail',            type: 'email',    placeholder: 'E-mail',            required: true  },
+  { name: 'Data do evento',    type: 'date',     placeholder: 'Data do evento',    required: true },
+  { name: 'Número de pessoas', type: 'number',   placeholder: 'Número de pessoas', required: true, min: '1' },
+  { name: 'Tipo de evento', type: 'select', placeholder: '', required: true, full: true, options: [
+    { value: '',                   label: 'Tipo de evento',              disabled: true, selected: true },
+    { value: 'Casamento',          label: 'Casamento'                    },
+    { value: 'Evento corporativo', label: 'Evento corporativo'           },
+    { value: 'Debutante',          label: 'Debutante'                    },
+    { value: 'Aniversário',        label: 'Aniversário'                  },
+    { value: 'Formatura',          label: 'Formatura'                    },
+    { value: 'Confraternização',   label: 'Confraternização / Fim de ano' },
+    { value: 'Outro',              label: 'Outro'                        },
+  ] },
+  { name: 'Mensagem', type: 'textarea', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true },
+];
+---
+
+<Base
+  title="Páreo · Casamentos no Salão Nobre do Jockey Club do Rio de Janeiro"
+  description="O Páreo recebe o seu casamento no Salão Nobre do Jockey Club Brasileiro, o endereço mais prestigiado do Rio de Janeiro. 587m² de sofisticação, para até 500 convidados."
+  ogImage={`${IMG}/pareosalaonobre-casamento-hero.jpg`}
+>
+
+<a href="#sobre" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#hero" aria-label="Páreo">
+      <Img src={`${IMG}/pareosalaocorporativo-logo.png`} alt="Logotipo Páreo" class="logo" priority />
+    </a>
+    <a class="btn" href="#contato">Solicitar contato</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg">
+      <Img src={`${IMG}/pareosalaonobre-casamento-hero.jpg`} alt="Lounge do Páreo decorado para casamento, com poltronas azuis, mesas espelhadas e iluminação dourada" priority />
+    </div>
+    <div class="container">
+      <div class="hero-copy">
+        <span class="eyebrow">Páreo · Salão Nobre</span>
+        <h1>Celebre o seu<br>casamento no<br>Salão Nobre do<br>Jockey Club Brasileiro</h1>
+        <p class="lead">O endereço mais prestigiado do Rio de Janeiro <br class="brk-mobile">recebe seu grande dia com exclusividade</p>
+        <a class="btn btn-solid" href="#contato">Comece a planejar</a>
+      </div>
+
+      <LeadForm
+        formId="lead-form-hero"
+        prefix="pcsh"
+        class="form-panel sn-lf"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+        fields={leadFields}
+      />
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="two-col">
+        <div class="col-text">
+          <span class="eyebrow">O Espaço</span>
+          <h2>O cenário perfeito<br>para o dia mais<br>importante da sua vida</h2>
+          <div class="divider"></div>
+          <p>Poucos lugares no Rio carregam o prestígio <br class="brk-mobile">do Jockey Club <br class="brk">e é nesse endereço que o <br class="brk-mobile">Páreo recebe o seu casamento.</p>
+          <p>E porque cada união é única, o Salão Nobre <br class="brk-mobile">se adapta <br class="brk">ao casamento que você imaginou.</p>
+        </div>
+        <div class="col-media">
+          <Img src={`${IMG}/pareosalaonobre-casamento-sobre.jpg`} alt="Vista aérea do Jockey Club Brasileiro, no Rio de Janeiro, onde está localizado o Páreo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERIMÔNIA -->
+  <section class="alt" id="cerimonia">
+    <div class="container">
+      <div class="two-col">
+        <div class="col-text">
+          <span class="eyebrow">Cerimônia</span>
+          <h2>O Salão Nobre<br>se transforma<br>para a cerimônia</h2>
+          <div class="divider"></div>
+          <p>Amplitude e elegância para o instante<br>mais aguardado da noite</p>
+        </div>
+        <div class="col-media">
+          <Img src={`${IMG}/pareosalaonobre-casamento-cerimonia.jpg`} alt="Cerimônia de casamento montada no Salão Nobre do Páreo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FESTA -->
+  <section id="festa">
+    <div class="container">
+      <div class="two-col reverse">
+        <div class="col-text">
+          <span class="eyebrow">Festa</span>
+          <h2>O momento<br>de celebrar</h2>
+          <div class="divider"></div>
+          <p>Do "sim" à festa, tudo acontece <br class="brk-mobile">no Salão Nobre</p>
+        </div>
+        <div class="col-media">
+          <Img src={`${IMG}/pareosalaonobre-casamento-festa.png`} alt="Festa de casamento no Salão Nobre do Páreo, com pista de dança e convidados" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GASTRONOMIA -->
+  <section id="gastronomia">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Gastronomia</span>
+        <h2>Gastronomia internacional <br class="brk-mobile">com identidade brasileira</h2>
+        <p>Sob o comando do chef Marcones Deus, <br class="brk-mobile">a cozinha do Páreo transita pelo mundo sem <br class="brk-mobile">jamais perder a identidade brasileira</p>
+      </div>
+    </div>
+    <div class="carrossel-gastronomia" aria-label="Galeria de gastronomia">
+      <div class="carrossel-track">
+        {gastronomia.map((g) => <Img src={g.src} alt={g.alt} />)}
+        {gastronomia.map((g) => <img src={g.src} alt="" aria-hidden="true" loading="lazy" />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTRUTURA -->
+  <section class="alt" id="estrutura">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Estrutura</span>
+        <h2>Nos bastidores,<br>uma operação impecável</h2>
+        <p>Os detalhes são exatamente os que tornam a sua noite impecável</p>
+      </div>
+      <div class="grid-estrutura">
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9.5-3.5-1-7-4.5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+          <span>Segurança especializada</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9.5" r="2.3"/><path d="M15 20c.3-2.5 2.2-4.3 4.5-4.3S23.7 17.5 24 20" transform="translate(-2 0)"/></svg></span>
+          <span>Até 500 convidados</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span>
+          <span>Localização privilegiada</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l2.47 5.13 5.53.82-4 4.02.94 5.63L12 16.02l-4.94 2.78.94-5.63-4-4.02 5.53-.82L12 3.2z"/></svg></span>
+          <span>Equipe dedicada</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 8.2L6.3 11H3.6a.6.6 0 00-.6.6v4.8c0 .33.27.6.6.6h2.7l4.2 2.8V8.2z"/><path d="M15.8 8.6a5 5 0 010 6.8"/><path d="M18.3 6.3a8.5 8.5 0 010 11.4"/></svg></span>
+          <span>Som e iluminação</span>
+        </div>
+        <div class="item-estrutura">
+          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 6l16 12M4 18L20 6M2 12h20"/></svg></span>
+          <span>Climatizadores</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARALLAX -->
+  <section class="parallax" id="experiencia">
+    <div class="frame">
+      <Img src={`${IMG}/pareosalaonobre-casamento-paralax.jpg`} alt="Varanda do Páreo iluminada à noite, com lounge decorado para casamento" />
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Galeria</span>
+        <h2>Um convite visual</h2>
+        <p>Conheça o Salão Nobre antes <br class="brk-mobile">mesmo da sua visita</p>
+      </div>
+      <div class="galeria-grid">
+        {galeria.map((item) => (
+          <button
+            type="button"
+            class={[item.tall ? 'tall' : '', item.desktopOnly ? 'desktop-only' : ''].filter(Boolean).join(' ') || undefined}
+            data-full={item.src}
+          >
+            <Img src={item.src} alt={item.alt} />
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="bg">
+      <Img src={`${IMG}/pareosalaonobre-casamento-contato.png`} alt="Ambiente do Páreo preparado para receber convidados" />
+    </div>
+    <div class="container">
+      <div class="intro">
+        <span class="eyebrow">Contato</span>
+        <h2>Comece a desenhar<br>o casamento que você<br>sempre desejou</h2>
+        <p>Preencha o formulário e a nossa equipe entrará em contato com você</p>
+      </div>
+
+      <LeadForm
+        formId="lead-form"
+        prefix="pcsc"
+        class="form-panel sn-lf"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+        fields={leadFields}
+      />
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="f-logo"><Img src={`${IMG}/logo-pareo_resultado.webp`} alt="Páreo" /></div>
+    <p>Copyright © 2026 Páreo · Todos os direitos reservados</p>
+    <div class="by">Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener noreferrer"><Img src="https://media.dmove.com.br/clients/dmove/photos/logo-dmove.webp" alt="Dmove" /></a></div>
+  </div>
+</footer>
+
+<div id="lightbox">
+  <button type="button" class="close" aria-label="Fechar">✕</button>
+  <img src="" alt="" />
+</div>
+
+</Base>
+<script>
+  import '../scripts/salao-nobre-casamento.js';
+</script>
