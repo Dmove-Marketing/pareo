@@ -69,7 +69,7 @@ section.hero h1 { font-size: clamp(1.71rem, 3.6vw, 2.7rem); }
 h2 { font-size: clamp(1.71rem, 3.6vw, 2.7rem); }
 h3 { font-size: clamp(1.04rem, 1.62vw, 1.26rem); }
 
-p { color: var(--cor-texto-muted); font-size: 1.02rem; }
+p { color: var(--cor-texto-muted); font-size: 1.02rem; line-height: 1.2; }
 
 .divider { width: 56px; height: 1px; background: var(--cor-dourado); margin: 22px 0; }
 
