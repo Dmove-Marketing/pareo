@@ -413,6 +413,7 @@ br.br-m { display: none; }
   .carrossel-track figure { flex-basis: 70vw; }
   header.site-header .container { justify-content: center; }
   header.site-header .btn { display: none; }
+  header.site-header img.logo { transform-origin: center center; }
   .grid-estrutura { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
   .form-panel { padding: 22px; }
   section.hero { padding-top: 100px; }
