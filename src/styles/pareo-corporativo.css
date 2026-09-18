@@ -418,9 +418,9 @@ br.br-m { display: none; }
   section.hero { padding-top: 100px; }
   .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; gap: 8px; }
   .carrossel-track-clientes { gap: 40px; }
-  .carrossel-track-clientes img { height: 64px !important; }
-  .carrossel-track-clientes img.logo-sm { height: 44px !important; }
-  .carrossel-track-clientes img.logo-lg { height: 88px !important; }
+  .carrossel-track-clientes img { height: 80px !important; }
+  .carrossel-track-clientes img.logo-sm { height: 54px !important; }
+  .carrossel-track-clientes img.logo-lg { height: 108px !important; }
   .carrossel-track-clientes img.logo-xl { height: 112px !important; }
 }
 @media (prefers-reduced-motion: reduce) {
