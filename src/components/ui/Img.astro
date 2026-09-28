@@ -8,6 +8,8 @@ interface Props {
   height?: number;
   /** true = eager + fetchpriority high (use na imagem LCP/hero) */
   priority?: boolean;
+  /** força o modo de carregamento (ex.: 'eager' em carrosséis com overflow oculto) */
+  loading?: 'eager' | 'lazy';
   quality?: number;
   class?: string;
   style?: string;
@@ -19,6 +21,7 @@ const {
   width = 1200,
   height,
   priority = false,
+  loading,
   quality = 80,
   class: className,
   style,
@@ -44,7 +47,7 @@ if (!isExternal && !mod) {
     alt={alt}
     width={width}
     height={height ?? undefined}
-    loading={priority ? 'eager' : 'lazy'}
+    loading={loading ?? (priority ? 'eager' : 'lazy')}
     fetchpriority={priority ? 'high' : undefined}
     class={className}
     style={style}
@@ -55,7 +58,7 @@ if (!isExternal && !mod) {
     alt={alt}
     width={width}
     height={height}
-    loading={priority ? 'eager' : 'lazy'}
+    loading={loading ?? (priority ? 'eager' : 'lazy')}
     fetchpriority={priority ? 'high' : undefined}
     quality={quality}
     class={className}
