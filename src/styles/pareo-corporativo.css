@@ -187,28 +187,6 @@ section.alt { background: var(--cor-fundo-alt); }
   to { transform: translateX(-50%); }
 }
 
-/* ---------- estrutura (icones) ---------- */
-.grid-estrutura {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 32px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.item-estrutura { text-align: center; }
-.item-estrutura .icone {
-  width: 46px; height: 46px;
-  margin: 0 auto 16px;
-  color: var(--cor-dourado);
-}
-.item-estrutura .icone svg { width: 100%; height: 100%; }
-.item-estrutura span {
-  display: block;
-  font-family: var(--fonte-titulo);
-  font-size: 1.05rem;
-  color: var(--cor-texto);
-}
-
 /* ---------- clientes (carrossel infinito) ---------- */
 #clientes { background: var(--cor-fundo-alt); }
 .carrossel-clientes {
@@ -258,11 +236,23 @@ section.parallax {
   }
 }
 
-/* ---------- galeria ---------- */
-.galeria-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 12px; }
-.galeria-grid button { border: 0; padding: 0; background: none; cursor: zoom-in; overflow: hidden; border-radius: 3px; }
-.galeria-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; }
-.galeria-grid button:hover img { transform: scale(1.05); filter: brightness(1.05); }
+/* ---------- mosaico de ambientes (seção #estrutura) ---------- */
+.mosaico-ambientes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 12px;
+}
+.mosaico-ambientes button { border: 0; padding: 0; background: none; cursor: zoom-in; overflow: hidden; border-radius: 3px; }
+.mosaico-ambientes button.big { grid-column: span 2; grid-row: span 2; }
+.mosaico-ambientes button.wide { grid-column: span 2; }
+.mosaico-ambientes button.tall { grid-row: span 2; }
+.mosaico-ambientes img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; }
+.mosaico-ambientes button:hover img { transform: scale(1.05); filter: brightness(1.05); }
+.mosaico-ambientes button:focus-visible { outline: 2px solid var(--cor-dourado); outline-offset: 2px; }
+
+/* bolinhas só aparecem no mobile (carrossel) */
+.slider-dots { display: none; }
 
 #lightbox {
   position: fixed; inset: 0;
@@ -392,8 +382,7 @@ footer.site-footer .by img { width: 90px; }
   #sobre .col-text { text-align: center; }
   #sobre .col-text .divider { margin-left: auto; margin-right: auto; }
   #sobre .col-text p { margin-inline: auto; }
-  .grid-estrutura { grid-template-columns: repeat(2, 1fr); }
-  .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  .mosaico-ambientes { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
   .carrossel-track figure { flex-basis: clamp(220px, 60vw, 280px); }
   section.hero .container { grid-template-columns: 1fr; gap: 36px; }
   section.contato .container { grid-template-columns: 1fr; }
@@ -406,6 +395,8 @@ br.br-m { display: none; }
 @media (max-width: 640px) {
   br.br-d { display: none; }
   br.br-m { display: inline; }
+  /* garante "O seu evento corporativo / no Jockey Club Brasileiro" em 2 linhas até em 320px */
+  section.hero h1 { font-size: min(1.71rem, 6.6vw); }
 }
 @media (max-width: 560px) {
   .sn-lf [class*="-form-grid"] { grid-template-columns: 1fr; }
@@ -414,10 +405,41 @@ br.br-m { display: none; }
   header.site-header .container { justify-content: center; }
   header.site-header .btn { display: none; }
   header.site-header img.logo { transform-origin: center center; }
-  .grid-estrutura { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
   .form-panel { padding: 22px; }
   section.hero { padding-top: 100px; }
-  .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; gap: 8px; }
+  /* mosaico vira carrossel: foto central com as vizinhas aparecendo nas laterais */
+  .ambientes-slider { --slide-w: 80vw; margin-inline: -24px; }
+  .mosaico-ambientes {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 calc((100% - var(--slide-w)) / 2);
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .mosaico-ambientes::-webkit-scrollbar { display: none; }
+  .mosaico-ambientes button,
+  .mosaico-ambientes button.big,
+  .mosaico-ambientes button.wide,
+  .mosaico-ambientes button.tall {
+    flex: 0 0 var(--slide-w);
+    aspect-ratio: 3 / 2;
+    scroll-snap-align: center;
+    border-radius: 4px;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+  }
+  .mosaico-ambientes button.is-active { opacity: 1; }
+  .mosaico-ambientes button:hover img { transform: none; filter: none; }
+  .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 24px; }
+  .slider-dots button {
+    width: 8px; height: 8px; padding: 0; border-radius: 50%;
+    border: 1px solid var(--cor-dourado); background: transparent; cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .slider-dots button[aria-current="true"] { background: var(--cor-dourado); transform: scale(1.25); }
   .carrossel-track-clientes { gap: 40px; }
   .carrossel-track-clientes img { height: 80px !important; }
   .carrossel-track-clientes img.logo-sm { height: 54px !important; }

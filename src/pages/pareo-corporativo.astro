@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import config from '../../config.json';
 import Img from '../components/ui/Img.astro';
@@ -31,14 +32,32 @@ const clientes = [
   { src: `${IMG}/pareosalaocorporativo-clientes-12.png`,            alt: 'Cliente do Páreo',  cls: '' },
 ];
 
-const galeria = [
-  { src: `${IMG}/pareosalaocorporativo-galeria-1.jpg`,  alt: 'Evento decorado no Salão Nobre do Páreo' },
-  { src: `${IMG}/pareosalaocorporativo-galeria-2.png`,  alt: 'Ambiente do Salão Nobre montado para celebração' },
-  { src: `${IMG}/pareosalaocorporativo-galeria-3.jpeg`, alt: 'Detalhe da decoração de evento no Salão Nobre' },
-  { src: `${IMG}/pareosalaocorporativo-galeria-4.png`,  alt: 'Mesa decorada em evento realizado no Salão Nobre' },
-  { src: `${IMG}/pareosalaocorporativo-galeria-5.jpg`,  alt: 'Salão Nobre decorado para grande evento' },
-  { src: `${IMG}/pareosalaocorporativo-galeria-6.jpg`,  alt: 'Convidados em evento no Salão Nobre do Páreo' },
+// Mosaico de ambientes — size: big (2x2) | tall (1x2) | wide (2x1) | '' (1x1)
+// A ordem importa: o conjunto fecha um grid de 4 colunas sem buracos.
+const ambienteFiles = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/pareo-corporativo/*.{jpg,jpeg,png}',
+  { eager: true }
+);
+const ambientesBase = [
+  { src: 'pareo-corporativo/ambiente-01.jpg', size: 'big',  alt: 'Salão Nobre em formato auditório com cadeiras de acrílico, telão e treliças de iluminação' },
+  { src: 'pareo-corporativo/ambiente-02.jpg', size: '',     alt: 'Área de mesas altas com painéis de raquetes em neon e bar de doces ao fundo' },
+  { src: 'pareo-corporativo/ambiente-03.jpg', size: 'tall', alt: 'Salão Nobre montado em formato auditório com cadeiras brancas e treliças de iluminação' },
+  { src: 'pareo-corporativo/ambiente-04.png', size: '',     alt: 'Lounge com puffs azuis e dourados, pista iluminada e globos espelhados no teto' },
+  { src: 'pareo-corporativo/ambiente-05.jpg', size: 'wide', alt: 'Salão Nobre com palco para banda, teto iluminado e lounge com sofá de veludo verde' },
+  { src: 'pareo-corporativo/ambiente-06.png', size: 'wide', alt: 'Evento corporativo com palco, telão e lounge de puffs coloridos' },
+  { src: 'pareo-corporativo/ambiente-07.jpg', size: '',     alt: 'Lounge com teto de folhagens, luminárias de madeira e vista para a varanda' },
+  { src: 'pareo-corporativo/ambiente-08.jpg', size: '',     alt: 'Mesas compridas decoradas com castiçais na varanda coberta' },
+  { src: 'pareo-corporativo/ambiente-09.jpg', size: 'big',  alt: 'Mesa de doces e bistrôs com painéis de raquetes iluminadas' },
+  { src: 'pareo-corporativo/ambiente-10.jpg', size: 'wide', alt: 'Varanda coberta à noite com mesas redondas decoradas e lustres de velas' },
+  { src: 'pareo-corporativo/ambiente-11.jpg', size: 'wide', alt: 'Pista e palco com painel de LED temático e teto iluminado' },
+  { src: 'pareo-corporativo/ambiente-12.jpg', size: 'wide', alt: 'Festa com lounge colorido, pista cenográfica e globos espelhados' },
 ];
+// Versão ampliada (WebP 1920px) para o lightbox
+const ambientes = await Promise.all(ambientesBase.map(async (a) => {
+  const mod = ambienteFiles[`/src/assets/images/${a.src}`];
+  const full = mod ? (await getImage({ src: mod.default, width: 1920, format: 'webp' })).src : '';
+  return { ...a, full };
+}));
 
 const leadFields: any[] = [
   { name: 'Nome',              type: 'text',     placeholder: 'Nome',              required: true,  full: true },
@@ -87,8 +106,8 @@ const leadFields: any[] = [
     <div class="container">
       <div class="hero-copy">
         <span class="eyebrow">Páreo · Salão Nobre</span>
-        <h1>O seu evento<br class="br-d"> corporativo no<br> endereço mais<br class="br-d"> prestigiado<br class="br-m"> do<br class="br-d"> Rio de Janeiro</h1>
-        <p class="lead">Realize a sua celebração no Salão Nobre<br class="br-d"> do Jockey Club, com a assinatura do Páreo Buffet.</p>
+        <h1>O seu evento<br class="br-d"> corporativo<br class="br-m"> no<br class="br-d"> Jockey Club Brasileiro</h1>
+        <p class="lead">Realize sua celebração no Salão Nobre,<br class="br-d"> com a assinatura do Páreo Buffet.</p>
         <a class="btn btn-solid" href="#contato">Comece a planejar</a>
       </div>
 
@@ -114,11 +133,35 @@ const leadFields: any[] = [
           <span class="eyebrow">O Espaço</span>
           <h2>Há endereços<br class="br-d"> que<br class="br-m"> dispensam<br class="br-d"> apresentação</h2>
           <div class="divider"></div>
-          <p>O Jockey Club Brasileiro é um deles. Entre a tradição centenária e a sofisticação da Zona Sul, existe um espaço reservado para encontros que precisam ser lembrados.</p>
+          <p>O Jockey Club Brasileiro é um deles. Um dos endereços mais seguros e tradicionais da Zona Sul do Rio, onde seu evento acontece com tranquilidade e estrutura.</p>
           <p>É aqui que o Páreo Buffet recebe eventos corporativos que conectam pessoas, marcas e grandes momentos.</p>
         </div>
         <div class="col-media">
           <Img src={`${IMG}/pareosalaocorporativo-sobre.jpg`} alt="Vista aérea do Jockey Club Brasileiro, no Rio de Janeiro, onde está localizado o Páreo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTRUTURA -->
+  <section class="alt" id="estrutura">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ambientes</span>
+        <h2>Contemple registros reais<br class="br-d"> do Salão Nobre</h2>
+        <p>Com 587m² e capacidade de 100 a 500 convidados, o Salão Nobre foi desenhado para receber grandes celebrações sem abrir mão da elegância.</p>
+      </div>
+      <!-- Desktop: mosaico · Mobile (≤640px): carrossel com bolinhas (mesmo padrão de /salao-nobre-casamento) -->
+      <div class="ambientes-slider">
+        <div class="mosaico-ambientes">
+          {ambientes.map((a) => (
+            <button type="button" class={a.size || undefined} data-full={a.full} aria-label={`Ampliar foto: ${a.alt}`}>
+              <Img src={a.src} alt={a.alt} width={a.size === 'big' ? 1200 : 800} />
+            </button>
+          ))}
+        </div>
+        <div class="slider-dots">
+          {ambientes.map((_, i) => <button type="button" aria-label={`Ir para a foto ${i + 1}`} aria-current={i === 0 ? 'true' : undefined}></button>)}
         </div>
       </div>
     </div>
@@ -141,42 +184,14 @@ const leadFields: any[] = [
     </div>
   </section>
 
-  <!-- ESTRUTURA -->
-  <section class="alt" id="estrutura">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Estrutura</span>
-        <h2>Nos bastidores, uma operação excepcional</h2>
-        <p>Com 587m² de puro requinte, o Salão Nobre foi desenhado para receber grandes celebrações sem abrir mão da elegância.</p>
-      </div>
-      <div class="grid-estrutura">
-        <div class="item-estrutura">
-          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9.5-3.5-1-7-4.5-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
-          <span>Segurança especializada</span>
-        </div>
-        <div class="item-estrutura">
-          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9.5" r="2.3"/><path d="M15 20c.3-2.5 2.2-4.3 4.5-4.3S23.7 17.5 24 20" transform="translate(-2 0)"/></svg></span>
-          <span>Até 500 convidados</span>
-        </div>
-        <div class="item-estrutura">
-          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></span>
-          <span>Localização privilegiada</span>
-        </div>
-        <div class="item-estrutura">
-          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l2.47 5.13 5.53.82-4 4.02.94 5.63L12 16.02l-4.94 2.78.94-5.63-4-4.02 5.53-.82L12 3.2z"/></svg></span>
-          <span>Equipe dedicada</span>
-        </div>
-        <div class="item-estrutura">
-          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 8.2L6.3 11H3.6a.6.6 0 00-.6.6v4.8c0 .33.27.6.6.6h2.7l4.2 2.8V8.2z"/><path d="M15.8 8.6a5 5 0 010 6.8"/><path d="M18.3 6.3a8.5 8.5 0 010 11.4"/></svg></span>
-          <span>Som e iluminação</span>
-        </div>
-        <div class="item-estrutura">
-          <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 6l16 12M4 18L20 6M2 12h20"/></svg></span>
-          <span>Climatizadores</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- PARALLAX -->
+  <section
+    class="parallax"
+    id="experiencia"
+    role="img"
+    aria-label="Varanda do Páreo iluminada à noite, com lounge decorado para evento"
+    style={`background-image:url('${IMG}/pareosalaocorporativo-paralax.jpeg')`}
+  ></section>
 
   <!-- CLIENTES -->
   <section id="clientes">
@@ -191,33 +206,6 @@ const leadFields: any[] = [
       <div class="carrossel-track-clientes">
         {clientes.map((c) => <Img src={c.src} alt={c.alt} class={c.cls || undefined} />)}
         {clientes.map((c) => <Img src={c.src} alt="" class={c.cls || undefined} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- PARALLAX -->
-  <section
-    class="parallax"
-    id="experiencia"
-    role="img"
-    aria-label="Varanda do Páreo iluminada à noite, com lounge decorado para evento"
-    style={`background-image:url('${IMG}/pareosalaocorporativo-paralax.jpeg')`}
-  ></section>
-
-  <!-- GALERIA -->
-  <section id="galeria">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Galeria</span>
-        <h2>Contemple registros<br>reais do espaço</h2>
-        <p>Deixe as imagens revelarem o cenário do seu próximo grande evento.</p>
-      </div>
-      <div class="galeria-grid">
-        {galeria.map((item) => (
-          <button type="button" data-full={item.src}>
-            <Img src={item.src} alt={item.alt} />
-          </button>
-        ))}
       </div>
     </div>
   </section>
@@ -258,7 +246,7 @@ const leadFields: any[] = [
   </div>
 </footer>
 
-<!-- Lightbox da galeria -->
+<!-- Lightbox do mosaico de ambientes -->
 <div id="lightbox">
   <button type="button" class="close" aria-label="Fechar">✕</button>
   <img src="" alt="" />
