@@ -365,6 +365,8 @@ footer.site-footer .by img { width: 90px; }
   .hero-copy .btn, .col-text .btn { margin-left: auto; margin-right: auto; }
   br.brk { display: none; }
   br.brk-mobile { display: inline; }
+  /* Garante as 3 linhas do texto da Gastronomia em telas estreitas (linha mais longa ≈ 20.4em) */
+  #gastronomia .section-head p { font-size: min(1.02rem, calc((100vw - 48px) / 20.6)); }
 }
 @media (max-width: 560px) {
   .sn-lf [class*="-form-grid"] { grid-template-columns: 1fr; }
