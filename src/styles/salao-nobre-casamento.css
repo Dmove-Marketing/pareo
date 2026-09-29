@@ -136,6 +136,9 @@ section.hero .container {
 section.hero .hero-copy { padding-top: 30px; max-width: 820px; }
 section.hero p.lead { color: var(--cor-texto); font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 20px 0 36px; text-wrap: balance; }
 
+/* Formulário: na hero no desktop; em seção própria abaixo da hero no mobile (≤900px) */
+section.form-mobile { display: none; }
+
 /* ---------- formulário LeadForm ---------- */
 .form-panel {
   background: rgba(19,16,12,0.74);
@@ -218,25 +221,34 @@ section { padding: 110px 0; position: relative; }
 section.alt { background: var(--cor-fundo-alt); }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.col-media img { border-radius: 4px; }
+#sobre .two-col { grid-template-columns: 0.85fr 1.2fr; }
+.col-media { display: flex; justify-content: center; }
+.col-media img { border-radius: 4px; margin-inline: auto; }
+
+#sobre h2 { letter-spacing: -0.01em; }
+#sobre .col-text p + p { margin-top: 1.4em; }
 
 .section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
 .section-head p { margin-top: 16px; }
 .section-head .divider { margin: 22px auto 0; }
 
 /* ---------- cerimônia e festa (texto + grade de fotos) ---------- */
-.grid-fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+/* Mosaico mais largo que o .container: até 1400px, com 24px de respiro nas bordas */
+.grid-fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-inline: calc(50% - min(700px, 50vw - 24px)); }
 .grid-fotos img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; display: block; }
 
 /* ---------- festa (carrossel de slides) ---------- */
-.carrossel-festa { position: relative; --cf-w: min(44vw, 620px); }
+/* Slide ativo alinhado à borda esquerda da tela (respiro de --cf-pad) */
+.carrossel-festa { position: relative; --cf-w: min(44vw, 620px); --cf-pad: 24px; }
 .cf-track {
+  position: relative;
   display: flex;
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 0 calc((100% - var(--cf-w)) / 2);
+  padding: 0 calc(100% - var(--cf-w) - var(--cf-pad)) 0 var(--cf-pad);
+  scroll-padding-left: var(--cf-pad);
   scrollbar-width: none;
   overscroll-behavior-x: contain;
 }
@@ -245,24 +257,12 @@ section.alt { background: var(--cor-fundo-alt); }
 .cf-slide {
   flex: 0 0 var(--cf-w);
   margin: 0;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   opacity: 0.4;
   transition: opacity 0.5s ease;
 }
 .cf-slide.is-active { opacity: 1; }
 .cf-slide img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; display: block; }
-.cf-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 52px; height: 52px; border-radius: 50%;
-  display: grid; place-items: center;
-  background: rgba(13,11,8,0.6); border: 1px solid var(--cor-dourado); color: var(--cor-dourado);
-  cursor: pointer; transition: background 0.3s ease, opacity 0.3s ease;
-}
-.cf-arrow svg { width: 22px; height: 22px; }
-.cf-arrow:hover { background: rgba(13,11,8,0.85); }
-.cf-arrow:disabled { opacity: 0; pointer-events: none; }
-.cf-prev { left: calc((100% - var(--cf-w)) / 2 - 26px); }
-.cf-next { right: calc((100% - var(--cf-w)) / 2 - 26px); }
 .cf-dots { display: flex; justify-content: center; gap: 10px; margin-top: 28px; }
 .cf-dots button {
   width: 8px; height: 8px; padding: 0; border-radius: 50%;
@@ -345,7 +345,15 @@ footer.site-footer .by img { width: 90px; }
 @media (max-width: 900px) {
   section.hero .container { grid-template-columns: 1fr; gap: 36px; }
   section.hero .hero-copy { max-width: 100%; }
-  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  section.hero .hero-form { display: none; }
+  /* Texto da hero no rodapé, deixando a foto aparecer em cima */
+  section.hero { align-items: flex-end; padding-bottom: 56px; }
+  section.hero .hero-copy { padding-top: 0; }
+  section.hero .bg::after { background: linear-gradient(180deg, rgba(13,11,8,0.15) 0%, rgba(13,11,8,0.2) 35%, rgba(13,11,8,0.85) 72%, rgba(13,11,8,0.95) 100%); }
+  section.form-mobile { display: block; }
+  .two-col,
+  #sobre .two-col { grid-template-columns: 1fr; gap: 32px; }
+  #sobre .col-text p { margin-inline: auto; }
   .carrossel-track img { height: 220px; }
   .grid-fotos { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .carrossel-festa { --cf-w: 64vw; }
@@ -371,7 +379,6 @@ footer.site-footer .by img { width: 90px; }
   .grid-fotos { gap: 8px; }
   .carrossel-festa { --cf-w: 80vw; }
   .cf-track { gap: 12px; }
-  .cf-arrow { display: none; }
   .carrossel-track img { margin-right: 12px; }
   section.parallax { height: 32vh; background-attachment: scroll; }
 }

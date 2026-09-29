@@ -11,7 +11,7 @@ const cerimonia = [
   { src: 'salao-nobre-casamento/cerimonia-1.png', alt: 'Cerimônia no Salão Nobre com altar de rosas, lustres de cristal e corredor espelhado' },
   { src: 'salao-nobre-casamento/cerimonia-2.jpg', alt: 'Cerimônia ao entardecer com lustres de cristal, cadeiras transparentes e passarela espelhada com velas' },
   { src: 'salao-nobre-casamento/cerimonia-3.jpg', alt: 'Cerimônia com iluminação âmbar, luminárias pendentes e arranjos de orquídeas no corredor' },
-  { src: 'salao-nobre-casamento/cerimonia-4.jpg', alt: 'Passarela espelhada com velas refletindo os lustres e o arco de flores do altar' },
+  { src: 'salao-nobre-casamento/cerimonia-4.jpg', alt: 'Cerimônia com arco de rosas, flores suspensas, cadeiras de madeira e passarela branca ladeada de arranjos' },
   { src: 'salao-nobre-casamento/cerimonia-5.jpg', alt: 'Cerimônia com iluminação azul, copos-de-leite e passarela branca até o altar' },
   { src: 'salao-nobre-casamento/cerimonia-6.jpg', alt: 'Cerimônia com tapete verde iluminado e arranjos de flores laranja entre as cadeiras' },
 ];
@@ -91,6 +91,23 @@ const leadFields: any[] = [
       <LeadForm
         formId="lead-form-hero"
         prefix="pcsh"
+        class="form-panel sn-lf hero-form"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+        fields={leadFields}
+      />
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO (só mobile: substitui o formulário da hero, que some em ≤900px) -->
+  <section class="alt form-mobile" id="formulario">
+    <div class="container">
+      <LeadForm
+        formId="lead-form-mobile"
+        prefix="pcsm"
         class="form-panel sn-lf"
         project={config.project_slug}
         submitUrl={config.forms['lead-form'].webhooks[0]}
@@ -108,7 +125,7 @@ const leadFields: any[] = [
       <div class="two-col">
         <div class="col-text">
           <span class="eyebrow">O Espaço</span>
-          <h2>O cenário perfeito<br>para o dia mais<br>importante da sua vida</h2>
+          <h2>O cenário perfeito<br> para o dia mais<br> importante<br> da sua vida</h2>
           <div class="divider"></div>
           <p>Poucos lugares no Rio carregam o prestígio do Jockey Club. Um endereço tradicional, seguro e reconhecido na Zona Sul, onde o Páreo recebe o seu casamento.</p>
           <p>O Salão Nobre se adapta ao casamento que você imaginou, recebendo de 100 a 500 convidados.</p>
@@ -153,8 +170,6 @@ const leadFields: any[] = [
           </figure>
         ))}
       </div>
-      <button type="button" class="cf-arrow cf-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button type="button" class="cf-arrow cf-next" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
     <div class="cf-dots">
       {festa.map((_, i) => <button type="button" aria-label={`Ir para a foto ${i + 1}`} aria-current={i === 0 ? 'true' : undefined}></button>)}
