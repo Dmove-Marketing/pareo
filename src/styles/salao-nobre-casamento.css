@@ -324,7 +324,7 @@ section.contato .container {
   gap: 60px;
   align-items: start;
 }
-section.contato .intro { max-width: 420px; padding-top: 20px; }
+section.contato .intro { max-width: 500px; padding-top: 20px; }
 section.contato .intro p { margin-top: 16px; }
 
 /* ---------- footer ---------- */
