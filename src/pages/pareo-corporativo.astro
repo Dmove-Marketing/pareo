@@ -114,6 +114,23 @@ const leadFields: any[] = [
       <LeadForm
         formId="lead-form-hero"
         prefix="pch"
+        class="form-panel sn-lf hero-form"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Enviar solicitação"
+        honeypot
+        fields={leadFields}
+      />
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO (só mobile: substitui o formulário da hero, que some em ≤900px) -->
+  <section class="alt form-mobile" id="formulario">
+    <div class="container">
+      <LeadForm
+        formId="lead-form-mobile"
+        prefix="pcm"
         class="form-panel sn-lf"
         project={config.project_slug}
         submitUrl={config.forms['lead-form'].webhooks[0]}
