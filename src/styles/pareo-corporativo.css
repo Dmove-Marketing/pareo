@@ -390,6 +390,10 @@ footer.site-footer .by img { width: 90px; }
   .hero-copy, section.contato .intro { text-align: center; margin-left: auto; margin-right: auto; justify-self: center; }
   .hero-copy .divider { margin-left: auto; margin-right: auto; }
   .hero-copy .btn { margin-left: auto; margin-right: auto; }
+  section.hero { align-items: flex-end; padding-bottom: 56px; }
+  section.hero .hero-copy { padding-top: 0; }
+  section.hero .form-panel { display: none; }
+  section.hero .bg::after { background: linear-gradient(180deg, rgba(13,11,8,0.15) 0%, rgba(13,11,8,0.2) 35%, rgba(13,11,8,0.85) 72%, rgba(13,11,8,0.95) 100%); }
 }
 br.br-m { display: none; }
 @media (max-width: 640px) {
