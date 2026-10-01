@@ -271,6 +271,19 @@ section.alt { background: var(--cor-fundo-alt); }
   transition: background 0.3s ease, transform 0.3s ease;
 }
 .cf-dots button[aria-current="true"] { background: var(--cor-dourado); transform: scale(1.25); }
+/* desktop: as 3 fotos fixas, lado a lado e centralizadas (carrossel só no mobile) */
+@media (min-width: 901px) {
+  .cf-track {
+    overflow: visible;
+    scroll-snap-type: none;
+    max-width: 1444px;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 20px;
+  }
+  .cf-slide { flex: 1 1 0; opacity: 1; }
+  .cf-dots { display: none; }
+}
 
 /* ---------- palco (cerimonial / valsa): painéis que se expandem ---------- */
 #cerimonial-valsa .section-head .divider { margin: 22px auto; }
