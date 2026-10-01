@@ -119,7 +119,18 @@ section.hero {
   padding: 130px 0 70px;
 }
 section.hero .bg { position: absolute; inset: 0; z-index: 0; }
-section.hero .bg img { width: 100%; height: 100%; object-fit: cover; }
+section.hero .bg { overflow: hidden; }
+section.hero .bg img { width: 100%; height: 100%; object-fit: cover; object-position: 52% top; }
+/* desktop: a debutante (x ≈ 52% da foto) fica no vão entre o título e o formulário (≈ centro − 110px) */
+@media (min-width: 901px) {
+  section.hero .bg img {
+    position: absolute;
+    top: 0;
+    width: calc(106% + 260px);
+    max-width: none;
+    left: calc(50% - 110px - 0.52 * (106% + 260px));
+  }
+}
 section.hero .bg::after {
   content: "";
   position: absolute; inset: 0;
@@ -135,6 +146,9 @@ section.hero .container {
 }
 section.hero .hero-copy { padding-top: 30px; max-width: 820px; }
 section.hero p.lead { color: var(--cor-texto); font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 20px 0 36px; }
+
+/* Formulário: na hero no desktop; em seção própria abaixo da hero no mobile (≤900px) */
+section.form-mobile { display: none; }
 
 /* ---------- formulário LeadForm ---------- */
 .form-panel {
@@ -218,68 +232,95 @@ section { padding: 110px 0; position: relative; }
 section.alt { background: var(--cor-fundo-alt); }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.two-col.reverse .col-text { order: 2; }
-.two-col.reverse .col-media { order: 1; }
 .col-media img { border-radius: 4px; }
 
-#sobre .two-col { align-items: stretch; }
-#sobre .col-media { height: 100%; }
-#sobre .col-media img { width: 100%; height: 100%; object-fit: cover; }
+#sobre .two-col { grid-template-columns: 0.85fr 1.2fr; }
+#sobre .col-media img { width: 100%; height: auto; }
 
-/* ---------- mini-carousel (valsa / pista de dança) ---------- */
-.mini-carrossel {
+/* ---------- festa (carrossel de slides, igual à LP de casamento) ---------- */
+/* Slide ativo alinhado à borda esquerda da tela (respiro de --cf-pad) */
+#festa-pista .section-head .divider { margin: 22px auto; }
+.carrossel-festa { position: relative; --cf-w: min(37.4vw, 527px); --cf-pad: 24px; }
+.cf-track {
   position: relative;
-  border-radius: 4px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0 calc(100% - var(--cf-w) - var(--cf-pad)) 0 var(--cf-pad);
+  scroll-padding-left: var(--cf-pad);
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.cf-track::-webkit-scrollbar { display: none; }
+.cf-track:focus-visible { outline: 1px solid var(--cor-dourado); outline-offset: 6px; }
+.cf-slide {
+  flex: 0 0 var(--cf-w);
+  margin: 0;
+  scroll-snap-align: start;
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
+}
+.cf-slide.is-active { opacity: 1; }
+.cf-slide img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; display: block; }
+.cf-dots { display: flex; justify-content: center; gap: 10px; margin-top: 28px; }
+.cf-dots button {
+  width: 8px; height: 8px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--cor-dourado); background: transparent; cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.cf-dots button[aria-current="true"] { background: var(--cor-dourado); transform: scale(1.25); }
+
+/* ---------- palco (cerimonial / valsa): painéis que se expandem ---------- */
+#cerimonial-valsa .section-head .divider { margin: 22px auto; }
+.palco {
+  display: flex;
+  gap: 12px;
+  height: min(66vh, 612px);
+  max-width: 1224px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.palco-painel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
   overflow: hidden;
-  aspect-ratio: 5/4;
+  border: 0;
+  padding: 0;
+  border-radius: 4px;
+  background: #000;
+  cursor: pointer;
+  transition: flex 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
-.mini-carrossel-track {
-  display: flex;
+.palco-painel.is-active { flex: 6 1 0; cursor: default; }
+.palco-painel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  transition: transform 0.5s ease;
+  object-fit: cover;
+  border-radius: 0;
+  filter: brightness(0.4) saturate(0.7);
+  transform: scale(1.06);
+  transition: filter 0.8s ease, transform 1.4s ease;
 }
-.mini-carrossel-slide { flex: 0 0 100%; height: 100%; }
-.mini-carrossel-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
-.mini-carrossel-seta {
+.palco-painel.is-active img { filter: none; transform: scale(1); }
+.palco-painel:not(.is-active):hover img { filter: brightness(0.65) saturate(0.9); }
+.palco-painel:focus-visible { outline: 1px solid var(--cor-dourado); outline-offset: 3px; }
+.palco-progresso {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  border: 1px solid var(--cor-dourado);
-  background: rgba(19,16,12,0.55);
-  color: var(--cor-dourado);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  line-height: 1;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: background 0.25s ease, color 0.25s ease;
+  left: 0; bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--cor-dourado);
 }
-.mini-carrossel-seta:hover { background: var(--cor-dourado); color: var(--cor-fundo); }
-.mini-carrossel-seta.prev { left: 14px; }
-.mini-carrossel-seta.next { right: 14px; }
-.mini-carrossel-dots {
-  position: absolute;
-  bottom: 14px; left: 0; right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-.mini-carrossel-dots button {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: rgba(236,227,210,0.4);
-  border: 0; padding: 0;
-  cursor: pointer;
-}
-.mini-carrossel-dots button.is-active { background: var(--cor-dourado); }
+.palco.is-visivel .palco-painel.is-active .palco-progresso { animation: palco-progresso 6s linear forwards; }
+.palco:hover .palco-progresso { animation-play-state: paused !important; }
+@keyframes palco-progresso { from { width: 0; } to { width: 100%; } }
 
 .section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
-#estrutura .section-head { max-width: 740px; }
 .section-head p { margin-top: 16px; }
 
 /* ---------- quebras de linha mobile ---------- */
@@ -310,37 +351,24 @@ section.alt { background: var(--cor-fundo-alt); }
   object-fit: cover;
 }
 #gastronomia .carrossel-track img { aspect-ratio: 4 / 5; width: auto; }
+#carrossel-debutantes .carrossel-track img { height: 440px; }
+#carrossel-debutantes { padding: 56px 0; }
+#carrossel-debutantes .carrossel-infinito { margin-top: 0; }
 @keyframes carrossel-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-/* ---------- estrutura (ícones) ---------- */
-.grid-estrutura {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 32px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.item-estrutura { text-align: center; }
-.item-estrutura .icone {
-  width: 46px; height: 46px;
-  margin: 0 auto 16px;
-  color: var(--cor-dourado);
-}
-.item-estrutura .icone svg { width: 100%; height: 100%; }
-.item-estrutura span {
-  display: block;
-  font-family: var(--fonte-titulo);
-  font-size: 1.05rem;
-  color: var(--cor-texto);
-}
-
 /* ---------- parallax ---------- */
-section.parallax { min-height: 46vh; background: #000; padding: 0; }
-section.parallax .frame { height: 46vh; overflow: hidden; }
-section.parallax .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+section.parallax {
+  height: 70vh;
+  padding: 0;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 /* ---------- galeria (4 colunas) ---------- */
 .galeria-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 12px; }
@@ -396,14 +424,21 @@ footer.site-footer .by img { width: 90px; }
 @media (max-width: 900px) {
   section.hero .container { grid-template-columns: 1fr; gap: 36px; }
   section.hero .hero-copy { max-width: 100%; }
-  .two-col { grid-template-columns: 1fr; gap: 32px; }
-  #sobre .col-media { height: auto; }
-  #sobre .col-media img { height: auto; aspect-ratio: 4 / 3; }
-  .two-col.reverse .col-text { order: 1; }
-  .two-col.reverse .col-media { order: 2; }
-  .grid-estrutura { grid-template-columns: repeat(2, 1fr); }
+  section.hero .hero-form { display: none; }
+  /* Texto da hero no rodapé, deixando a foto aparecer em cima */
+  section.hero { align-items: flex-end; padding-bottom: 56px; }
+  section.hero .hero-copy { padding-top: 0; }
+  section.hero .bg::after { background: linear-gradient(180deg, rgba(13,11,8,0.15) 0%, rgba(13,11,8,0.2) 35%, rgba(13,11,8,0.85) 72%, rgba(13,11,8,0.95) 100%); }
+  section.form-mobile { display: block; }
+  .two-col,
+  #sobre .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .palco { flex-direction: column; height: auto; gap: 8px; }
+  .palco-painel { flex: none; height: 64px; transition: height 0.7s cubic-bezier(0.65, 0, 0.35, 1); }
+  .palco-painel.is-active { flex: none; height: calc((100vw - 48px) * 0.667); }
+  .carrossel-festa { --cf-w: 64vw; }
   .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
   .carrossel-track img { height: 220px; }
+  #carrossel-debutantes .carrossel-track img { height: 300px; }
   section.contato .container { grid-template-columns: 1fr; padding: 90px 24px; }
   section.contato .intro { max-width: 100%; }
   section { padding: 80px 0; }
@@ -421,20 +456,24 @@ footer.site-footer .by img { width: 90px; }
   header.site-header .container { justify-content: center; }
   header.site-header .btn { display: none; }
   header.site-header img.logo { transform-origin: center center; }
-  .grid-estrutura { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
   .form-panel { padding: 22px; }
+  .carrossel-festa { --cf-w: 80vw; }
+  .cf-track { gap: 12px; }
   section.hero { padding-top: 100px; }
   section { padding: 64px 0; }
   .galeria-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; gap: 8px; }
   .carrossel-track img { height: 170px; }
+  #carrossel-debutantes .carrossel-track img { height: 230px; }
+  #carrossel-debutantes { padding: 40px 0; }
   .carrossel-track { gap: 12px; }
-  section.parallax { min-height: 32vh; }
-  section.parallax .frame { height: 32vh; }
-  .mini-carrossel-seta { width: 34px; height: 34px; font-size: 1.1rem; }
-  .mini-carrossel-seta.prev { left: 8px; }
-  .mini-carrossel-seta.next { right: 8px; }
+  section.parallax { height: 45vh; background-attachment: scroll; }
   #lightbox { padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition-duration: 0.01ms !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palco-painel, .palco-painel img { transition: none; }
+  .palco-progresso { display: none; }
 }
